@@ -1,0 +1,3 @@
+C:/Users/afdom/OneDrive/Ambiente de Trabalho/AED/Project1_code/cmake-build-debug/CMakeFiles/Project1_code.dir
+C:/Users/afdom/OneDrive/Ambiente de Trabalho/AED/Project1_code/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/afdom/OneDrive/Ambiente de Trabalho/AED/Project1_code/cmake-build-debug/CMakeFiles/rebuild_cache.dir
