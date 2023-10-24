@@ -7,9 +7,9 @@
 #include <sstream>
 #include "UC.h"
 using namespace std;
-void parse_files(std::vector<UC>& uc_vector) {
+void parse_files(std::vector<UC>& uc_vector,std::string fn ) {
 
-    ifstream ucfile("classes_per_uc.csv"); // abrir o ficheiro
+    ifstream ucfile(fn); // abrir o ficheiro
     if (!ucfile.is_open()) {
         cout << "Error: Unable to open the file." << '\n';
     }
@@ -44,7 +44,7 @@ void parse_files(std::vector<UC>& uc_vector) {
 }
 int main(){
     std::vector<UC> uc_vector;
-    parse_files(uc_vector);
+    parse_files(uc_vector,"classes_per_uc.csv");
     cout << uc_vector.size();
     for(auto uc : uc_vector) cout << uc.getcode();
     return 0;
