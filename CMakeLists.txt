@@ -14,4 +14,5 @@ add_executable(Project1_code
         Class.h
         Class.cpp
         UC.h
-        Parse_files.cpp)
+        Parse_files.cpp
+        UC.cpp)

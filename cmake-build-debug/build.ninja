@@ -61,8 +61,14 @@ build CMakeFiles/Project1_code.dir/Class.cpp.obj: CXX_COMPILER__Project1_code_un
   OBJECT_DIR = CMakeFiles\Project1_code.dir
   OBJECT_FILE_DIR = CMakeFiles\Project1_code.dir
 
-build CMakeFiles/Project1_code.dir/Main.cpp.obj: CXX_COMPILER__Project1_code_unscanned_Debug C$:/Users/afdom/OneDrive/Ambiente$ de$ Trabalho/AED/Project1_code/Main.cpp || cmake_object_order_depends_target_Project1_code
-  DEP_FILE = CMakeFiles\Project1_code.dir\Main.cpp.obj.d
+build CMakeFiles/Project1_code.dir/Parse_files.cpp.obj: CXX_COMPILER__Project1_code_unscanned_Debug C$:/Users/afdom/OneDrive/Ambiente$ de$ Trabalho/AED/Project1_code/Parse_files.cpp || cmake_object_order_depends_target_Project1_code
+  DEP_FILE = CMakeFiles\Project1_code.dir\Parse_files.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Project1_code.dir
+  OBJECT_FILE_DIR = CMakeFiles\Project1_code.dir
+
+build CMakeFiles/Project1_code.dir/UC.cpp.obj: CXX_COMPILER__Project1_code_unscanned_Debug C$:/Users/afdom/OneDrive/Ambiente$ de$ Trabalho/AED/Project1_code/UC.cpp || cmake_object_order_depends_target_Project1_code
+  DEP_FILE = CMakeFiles\Project1_code.dir\UC.cpp.obj.d
   FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\Project1_code.dir
   OBJECT_FILE_DIR = CMakeFiles\Project1_code.dir
@@ -75,7 +81,7 @@ build CMakeFiles/Project1_code.dir/Main.cpp.obj: CXX_COMPILER__Project1_code_uns
 #############################################
 # Link the executable Project1_code.exe
 
-build Project1_code.exe: CXX_EXECUTABLE_LINKER__Project1_code_Debug CMakeFiles/Project1_code.dir/teste.cpp.obj CMakeFiles/Project1_code.dir/Class.cpp.obj CMakeFiles/Project1_code.dir/Main.cpp.obj
+build Project1_code.exe: CXX_EXECUTABLE_LINKER__Project1_code_Debug CMakeFiles/Project1_code.dir/teste.cpp.obj CMakeFiles/Project1_code.dir/Class.cpp.obj CMakeFiles/Project1_code.dir/Parse_files.cpp.obj CMakeFiles/Project1_code.dir/UC.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Project1_code.dir
