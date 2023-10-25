@@ -6,4 +6,8 @@
 
 Class::Class(std::string classcode) {
     this->classcode = classcode;
+
+}
+std::string Class::getTurmaCode() {
+    return this->classcode;
 }

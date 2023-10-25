@@ -2,6 +2,7 @@
 #define PROJECT1_CODE_UC_H
 #include <string>
 #include <vector>
+#include <set>
 #include "Class.h"
 
 class UC {
@@ -13,6 +14,7 @@ class UC {
         UC(std::string Uccode, Class class1);
         void add_class(Class class1);
         std::string getcode();
+        std::vector<Class>getClasses();
 };
 
 

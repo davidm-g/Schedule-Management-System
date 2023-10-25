@@ -18,3 +18,7 @@ void UC::add_class(Class class1) {
 std::string UC::getcode() {
     return this->UC_code;
 }
+
+std::vector<Class> UC::getClasses() {
+    return this->classes;
+}
