@@ -3,12 +3,6 @@
 //
 
 #include "Schedule.h"
-Schedule::Schedule(){
-    this->weekday = "";
-    this->start_hour = 0.0;
-    this->duration = 0.0;
-    this->type = "";
-}
 Schedule::Schedule(std::string weekday, float start_hour, float duration, std::string type){
     this->weekday = weekday;
     this->start_hour = start_hour;

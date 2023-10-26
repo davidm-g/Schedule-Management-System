@@ -13,18 +13,17 @@
 // A schedule is composed by several classes. A student is identified by a name, and has an associated
 // schedule. A class is identified by a code and has a given schedule.
 class Class {
-    private:
-        std::set<Student> students;
-        std::string classcode;
-        std::vector<Schedule> class_schedule;
-    public:
-        Class();
-        Class(std::string classcode);
-        std::string getTurmaCode() const;
-        void add_student(Student &s1);
-        std::set<Student> getStudents();
-        void add_Schedule(Schedule sch);
-        std::vector<Schedule>& getSchedule();
+private:
+    std::set<Student> students;
+    std::string classcode;
+    std::vector<Schedule> class_schedule;
+public:
+    Class(std::string classcode);
+    std::string getTurmaCode();
+    void add_student(Student &s1);
+    std::set<Student> getStudents();
+    void add_Schedule(Schedule sec);
+    std::vector<Schedule> getSchedule();
 };
 
 

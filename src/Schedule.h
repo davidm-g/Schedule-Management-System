@@ -4,18 +4,17 @@
 #include <iostream>
 using namespace std;
 class Schedule {
-    private:
-        std::string weekday;
-        float start_hour;
-        float duration;
-        std::string type;
-    public:
-        Schedule();
-        Schedule(std::string weekday, float start_hour, float duration, std::string type);
-        std::string get_weekday();
-        float get_starthour();
-        float get_duration();
-        std::string get_type();
+private:
+    std::string weekday;
+    float start_hour;
+    float duration;
+    std::string type;
+public:
+    Schedule(std::string weekday, float start_hour, float duration, std::string type);
+    std::string get_weekday();
+    float get_starthour();
+    float get_duration();
+    std::string get_type();
 
 };
 

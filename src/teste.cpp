@@ -1,5 +1,5 @@
 //
-// Created by afdom on 10/10/2023.
+//
 //
 
 #include <iostream>
@@ -10,12 +10,8 @@
 #include <algorithm>
 
 using namespace std;
-/* bool compareByUccode( UC& uc, const std::string& uccode) {
-    return uc.getcode() < uccode;
-}
- */
-vector<UC> parse_file1() {
-    vector<UC> uc_vector;
+
+void parse_file1(std::vector<UC>& uc_vector) {
     ifstream ucfile("classes_per_uc.csv");
     string line;
     getline(ucfile, line); // ler e ignorar a primeira linha
@@ -40,11 +36,8 @@ vector<UC> parse_file1() {
         }
 
     }
-    ucfile.close();
-    return uc_vector;
 }
-/*
->>>>NÃO ESTÁ A FUNCIONAR<<<<
+
 void parse_file2(std::vector<UC>& uc_vector) {
     ifstream stufile("students_classes.csv");
     string line;
@@ -59,78 +52,79 @@ void parse_file2(std::vector<UC>& uc_vector) {
 
         for(UC &uc : uc_vector) {
             if(uc.getcode() == uccode) {
-               for (Class &classe : uc.getClasses()) {
+                std::vector<Class> cl = uc.getClasses();
+                for (Class &classe : cl) {
                     if (classe.getTurmaCode() == classcode) {
-                        Student s1 = Student(scode, sname);
-                        classe.add_student(s1);
+                        Student stu = Student(scode, sname);
+                        classe.add_student(stu);
                         break;
                     }
                 }
+                uc.setClasses(cl);
                 break;
             }
         }
-        //uc_code[uccode][classcode]
-
-        //auto it= lower_bound(uc_vector.begin(),uc_vector.end(),uccode,compareByUccode);
-
     }
 }
-    */
-vector<UC> parse_file3() {
-    vector<UC> uc_vector = parse_file1();
-    ifstream inputFile("classes.csv");
+
+void parse_file3(std::vector<UC>& uc_vector) {
+    ifstream clfile("classes.csv");
     string line;
-    getline(inputFile, line);
+    getline(clfile, line);
+    while (getline(clfile, line)){
+        string classcode,uccode,weekday,duration,starthour,type;
+        istringstream iss(line);
+        getline(iss, classcode, ','); // extrair classcode e ignorar a vírgula
+        getline(iss, uccode, ','); // extrair uccode e ignorar a vírgula
+        getline(iss, weekday, ','); // extrair weekday e ignorar a vírgula
+        getline(iss, starthour, ','); // extrair starthour e ignorar a vírgula
+        getline(iss, duration, ','); // extrair duration e ignorar a vírgula
+        getline(iss, type); // extrair type
+        float du = stof(duration);
+        float sth = stof(starthour);
 
-
-    // extrair type e ignorar a vírgula
-
-
-        while (getline(inputFile, line)) {
-            istringstream iss(line);
-            string classCode, ucCode, weekday, startHour, duration, type;
-            getline(iss, classCode, ',');
-            getline(iss, ucCode, ',');
-            getline(iss, weekday, ',');
-            getline(iss, startHour, ',');
-            getline(iss, duration, ',');
-            getline(iss, type);
-
-
-            Schedule schedule(weekday, stof(startHour), stof(duration), type); // Create a Schedule object
-
-            // Create a Class object and add the Schedule
-
-            // Find the appropriate UC or create a new one
-
-            for (UC& u : uc_vector) {
-                if (u.getcode() == ucCode) {
-                    for(Class& c : u.getClasses()){
-                        if(c.getTurmaCode() == classCode) {
-                            c.add_Schedule(schedule);
-                            break;
-                        }
+        for(UC &uc : uc_vector) {
+            if(uc.getcode() == uccode) {
+                std::vector<Class> cl = uc.getClasses();
+                for (Class &classe : cl) {
+                    if (classe.getTurmaCode() == classcode) {
+                        Schedule sch = Schedule(weekday,sth,du,type);
+                        classe.add_Schedule(sch);
+                        break;
                     }
-                    break;
-
                 }
+                uc.setClasses(cl);
+                break;
             }
-
-
-
-
-            // Add the Class object to the UC
-
         }
-
-        inputFile.close();
-
-
-
-    return uc_vector;
+    }
 }
 int main(){
+    vector<UC> uc_vector;
 
-    parse_file3();
+    parse_file1(uc_vector);
+    parse_file2(uc_vector);
+    parse_file3(uc_vector);
+
+    cout << "Número de UCs = " << uc_vector.size() << '\n';
+    int count_sch = 0;
+    int count_stu = 0;
+    for (auto uc : uc_vector) {
+        for (auto cl : uc.getClasses()) {
+            cout << '\n' << uc.getcode() << ' ' << cl.getTurmaCode() << '\n'; // imprime o código da uc e da turma
+            for (auto sch : cl.getSchedule()) {
+                cout << sch.get_weekday() << ' ' << sch.get_starthour() << ' ' << // imprime o horário
+                     sch.get_duration() << ' ' << sch.get_type() << '\n';
+                count_sch++; // conta o número de horários
+            }
+            for (auto stu : cl.getStudents()) {
+                cout << '\n' << stu.getID() << ' ' << stu.getName();
+                count_stu++;
+            }
+            cout << '\n' << "///////////////////////";
+        }
+    }
+    cout << '\n' << "Número de horários = " << count_sch << '\n';
+    cout << "Número de estudantes = " << count_stu << endl;
     return 0;
 }
