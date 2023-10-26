@@ -1,19 +1,21 @@
 #ifndef PROJECT1_CODE_SCHEDULE_H
 #define PROJECT1_CODE_SCHEDULE_H
-
-
+#include <string>
+#include <iostream>
+using namespace std;
 class Schedule {
     private:
-        std::string uc_code;
-        std::string classcode;
         std::string weekday;
-        float start_time;
+        float start_hour;
         float duration;
+        std::string type;
     public:
-        Schedule(std::string uc_code, std::string classcode);
+        Schedule(std::string weekday, float start_hour, float duration, std::string type);
         std::string get_weekday();
-        float get_start();
+        float get_starthour();
         float get_duration();
+        std::string get_type();
+
 };
 
 

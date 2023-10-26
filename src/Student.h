@@ -8,16 +8,17 @@
 
 class Student {
     private:
-        int id;
+        std::string id;
         std::string name;
         std::vector<Schedule> student_schedule;
     public:
         //Student();
-        Student(int id, std::string name);
+        Student(std::string id, std::string name);
         std::string getName();
-        int getID();
+        std::string getID() const;
         Schedule getSchedule(int id);
         void setSchedule(std::string uc_code, std::string classcode);
+        bool operator< (const Student& s1) const;
 };
 
 

@@ -16,11 +16,14 @@ class Class {
     private:
         std::set<Student> students;
         std::string classcode;
-        std::string type;
         std::vector<Schedule> class_schedule;
     public:
         Class(std::string classcode);
         std::string getTurmaCode();
+        void add_student(Student &s1);
+        std::set<Student> getStudents();
+        void add_Schedule(Schedule sec);
+        std::vector<Schedule> getSchedule();
 };
 
 

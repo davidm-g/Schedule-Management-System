@@ -22,3 +22,10 @@ std::string UC::getcode() {
 std::vector<Class> UC::getClasses() {
     return this->classes;
 }
+
+/*
+bool UC::operator< (UC &uc2) const {
+    return (this->UC_code < uc2.getcode());
+}
+ */
+

@@ -10,4 +10,6 @@ file(COPY students_classes.csv DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 add_executable(Project1_code
         teste.cpp
         Class.cpp
-        UC.cpp)
+        UC.cpp
+        Student.cpp
+        Schedule.cpp)

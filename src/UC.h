@@ -15,6 +15,8 @@ class UC {
         void add_class(Class class1);
         std::string getcode();
         std::vector<Class>getClasses();
+        //bool operator < (UC &uc2) const;
+
 };
 
 
