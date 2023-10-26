@@ -10,12 +10,12 @@ class UC {
         std::string UC_code;
         std::vector<Class> classes;
     public:
+        UC();
         UC(std::string Uccode);
         UC(std::string Uccode, Class class1);
         void add_class(Class class1);
-        std::string getcode();
+        std::string getcode() const;
         std::vector<Class>getClasses();
-        //bool operator < (UC &uc2) const;
 
 };
 

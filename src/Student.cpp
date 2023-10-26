@@ -3,10 +3,15 @@
 //
 
 #include "Student.h"
-
+Student::Student() {
+    this->id = "";
+    this->name = "";
+    this->student_schedule = vector<Schedule>();
+}
 Student::Student(std::string id, std::string name) {
     this->id = id;
     this->name = name;
+    this->student_schedule = vector<Schedule>();
 }
 std::string Student::getName(){
     return this->name;

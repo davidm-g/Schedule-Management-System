@@ -18,12 +18,13 @@ class Class {
         std::string classcode;
         std::vector<Schedule> class_schedule;
     public:
+        Class();
         Class(std::string classcode);
-        std::string getTurmaCode();
+        std::string getTurmaCode() const;
         void add_student(Student &s1);
         std::set<Student> getStudents();
-        void add_Schedule(Schedule sec);
-        std::vector<Schedule> getSchedule();
+        void add_Schedule(Schedule sch);
+        std::vector<Schedule>& getSchedule();
 };
 
 

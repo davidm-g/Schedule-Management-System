@@ -10,6 +10,7 @@ class Schedule {
         float duration;
         std::string type;
     public:
+        Schedule();
         Schedule(std::string weekday, float start_hour, float duration, std::string type);
         std::string get_weekday();
         float get_starthour();

@@ -12,7 +12,7 @@ class Student {
         std::string name;
         std::vector<Schedule> student_schedule;
     public:
-        //Student();
+        Student();
         Student(std::string id, std::string name);
         std::string getName();
         std::string getID() const;
