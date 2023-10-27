@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Project1_code.dir/Class.cpp.o"
-  "CMakeFiles/Project1_code.dir/Class.cpp.o.d"
   "CMakeFiles/Project1_code.dir/Schedule.cpp.o"
   "CMakeFiles/Project1_code.dir/Schedule.cpp.o.d"
   "CMakeFiles/Project1_code.dir/Student.cpp.o"
   "CMakeFiles/Project1_code.dir/Student.cpp.o.d"
+  "CMakeFiles/Project1_code.dir/Turma.cpp.o"
+  "CMakeFiles/Project1_code.dir/Turma.cpp.o.d"
   "CMakeFiles/Project1_code.dir/UC.cpp.o"
   "CMakeFiles/Project1_code.dir/UC.cpp.o.d"
   "CMakeFiles/Project1_code.dir/teste.cpp.o"

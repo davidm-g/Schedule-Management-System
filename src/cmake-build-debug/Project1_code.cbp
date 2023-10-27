@@ -82,12 +82,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Class.cpp">
-			<Option target="Project1_code"/>
-		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Class.h">
-			<Option target="Project1_code"/>
-		</Unit>
 		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Schedule.cpp">
 			<Option target="Project1_code"/>
 		</Unit>
@@ -98,6 +92,12 @@
 			<Option target="Project1_code"/>
 		</Unit>
 		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Student.h">
+			<Option target="Project1_code"/>
+		</Unit>
+		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Turma.cpp">
+			<Option target="Project1_code"/>
+		</Unit>
+		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Turma.h">
 			<Option target="Project1_code"/>
 		</Unit>
 		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/UC.cpp">

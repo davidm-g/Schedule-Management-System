@@ -3,19 +3,19 @@
 #include <string>
 #include <vector>
 #include <set>
-#include "Class.h"
+#include "Turma.h"
 
 class UC {
 private:
     std::string UC_code;
-    std::vector<Class> classes;
+    std::vector<Turma> classes;
 public:
     UC(std::string Uccode);
-    UC(std::string Uccode, Class class1);
-    void add_class(Class class1);
+    UC(std::string Uccode, Turma class1);
+    void add_class(Turma class1);
     std::string getcode();
-    std::vector<Class>getClasses();
-    void setClasses(vector<Class> X);
+    std::vector<Turma>getClasses();
+    void setClasses(vector<Turma> X);
 };
 
 

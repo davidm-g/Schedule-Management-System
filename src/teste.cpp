@@ -25,20 +25,21 @@ void parse_file1(std::vector<UC>& uc_vector) {
         for (UC &uc: uc_vector) {
             if (uc.getcode() == uccode) {
                 existia = true;
-                Class t = Class(classcode);
-                uc.add_class(t); // adicionar a uma UC existente uma Class
+                Turma t = Turma(classcode);
+                uc.add_class(t); // adicionar a uma UC existente uma Turma
                 break;
             }
         }
         if (!existia) {
-            Class t = Class(classcode);
+            Turma t = Turma(classcode);
             uc_vector.push_back(UC(uccode, t)); // adicionar ao vetor de UCs uma UC nova
         }
 
     }
 }
 
-void parse_file2(std::vector<UC>& uc_vector) {
+
+void parse_file2(std::vector<UC>& uc_vector,std::set<Student>& allstudents) {
     ifstream stufile("students_classes.csv");
     string line;
     getline(stufile, line); // ler e ignorar a primeira linha
@@ -52,12 +53,16 @@ void parse_file2(std::vector<UC>& uc_vector) {
 
         for(UC &uc : uc_vector) {
             if(uc.getcode() == uccode) {
-                std::vector<Class> cl = uc.getClasses();
-                for (Class &classe : cl) {
+                std::vector<Turma> cl = uc.getClasses();
+                for (Turma &classe : cl) {
                     if (classe.getTurmaCode() == classcode) {
-                        Student stu = Student(scode, sname);
+                        Student stu = Student(scode,sname);
                         classe.add_student(stu);
+                        if(allstudents.find(stu) == allstudents.end()){
+                            allstudents.insert(stu);
+                        }
                         break;
+
                     }
                 }
                 uc.setClasses(cl);
@@ -66,7 +71,6 @@ void parse_file2(std::vector<UC>& uc_vector) {
         }
     }
 }
-
 void parse_file3(std::vector<UC>& uc_vector) {
     ifstream clfile("classes.csv");
     string line;
@@ -85,8 +89,8 @@ void parse_file3(std::vector<UC>& uc_vector) {
 
         for(UC &uc : uc_vector) {
             if(uc.getcode() == uccode) {
-                std::vector<Class> cl = uc.getClasses();
-                for (Class &classe : cl) {
+                std::vector<Turma> cl = uc.getClasses();
+                for (Turma &classe : cl) {
                     if (classe.getTurmaCode() == classcode) {
                         Schedule sch = Schedule(weekday,sth,du,type);
                         classe.add_Schedule(sch);
@@ -99,16 +103,19 @@ void parse_file3(std::vector<UC>& uc_vector) {
         }
     }
 }
+
 int main(){
     vector<UC> uc_vector;
+    set<Student> allstudents;
 
     parse_file1(uc_vector);
-    parse_file2(uc_vector);
+    parse_file2(uc_vector,allstudents);
     parse_file3(uc_vector);
 
     cout << "Número de UCs = " << uc_vector.size() << '\n';
-    int count_sch = 0;
     int count_stu = 0;
+    /*
+    int count_sch = 0;
     for (auto uc : uc_vector) {
         for (auto cl : uc.getClasses()) {
             cout << '\n' << uc.getcode() << ' ' << cl.getTurmaCode() << '\n'; // imprime o código da uc e da turma
@@ -125,6 +132,11 @@ int main(){
         }
     }
     cout << '\n' << "Número de horários = " << count_sch << '\n';
+    */
+    for (auto stu : allstudents) {
+        cout << stu.getID() << ' ' << stu.getName() << '\n';
+        count_stu++;
+    }
     cout << "Número de estudantes = " << count_stu << endl;
     return 0;
 }

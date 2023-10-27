@@ -159,13 +159,18 @@ CMakeFiles/Project1_code.dir/teste.cpp.o: \
  /usr/include/c++/11/bits/stl_set.h \
  /usr/include/c++/11/bits/stl_multiset.h \
  /usr/include/c++/11/bits/erase_if.h \
- /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Class.h \
+ /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Turma.h \
  /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Student.h \
  /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Schedule.h \
- /usr/include/c++/11/list /usr/include/c++/11/bits/stl_list.h \
+ /usr/include/c++/11/map /usr/include/c++/11/bits/stl_map.h \
+ /usr/include/c++/11/tuple /usr/include/c++/11/utility \
+ /usr/include/c++/11/bits/stl_relops.h /usr/include/c++/11/array \
+ /usr/include/c++/11/bits/uses_allocator.h \
+ /usr/include/c++/11/bits/invoke.h \
+ /usr/include/c++/11/bits/stl_multimap.h /usr/include/c++/11/list \
+ /usr/include/c++/11/bits/stl_list.h \
  /usr/include/c++/11/bits/allocated_ptr.h \
  /usr/include/c++/11/bits/list.tcc /usr/include/c++/11/algorithm \
- /usr/include/c++/11/utility /usr/include/c++/11/bits/stl_relops.h \
  /usr/include/c++/11/bits/stl_algo.h \
  /usr/include/c++/11/bits/algorithmfwd.h \
  /usr/include/c++/11/bits/stl_heap.h \

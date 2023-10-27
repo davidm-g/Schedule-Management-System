@@ -83,19 +83,19 @@ CMakeFiles/Project1_code.dir/teste.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project1_code.dir/teste.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/teste.cpp -o CMakeFiles/Project1_code.dir/teste.cpp.s
 
-CMakeFiles/Project1_code.dir/Class.cpp.o: CMakeFiles/Project1_code.dir/flags.make
-CMakeFiles/Project1_code.dir/Class.cpp.o: /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Class.cpp
-CMakeFiles/Project1_code.dir/Class.cpp.o: CMakeFiles/Project1_code.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Project1_code.dir/Class.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project1_code.dir/Class.cpp.o -MF CMakeFiles/Project1_code.dir/Class.cpp.o.d -o CMakeFiles/Project1_code.dir/Class.cpp.o -c /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Class.cpp
+CMakeFiles/Project1_code.dir/Turma.cpp.o: CMakeFiles/Project1_code.dir/flags.make
+CMakeFiles/Project1_code.dir/Turma.cpp.o: /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Turma.cpp
+CMakeFiles/Project1_code.dir/Turma.cpp.o: CMakeFiles/Project1_code.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Project1_code.dir/Turma.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project1_code.dir/Turma.cpp.o -MF CMakeFiles/Project1_code.dir/Turma.cpp.o.d -o CMakeFiles/Project1_code.dir/Turma.cpp.o -c /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Turma.cpp
 
-CMakeFiles/Project1_code.dir/Class.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project1_code.dir/Class.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Class.cpp > CMakeFiles/Project1_code.dir/Class.cpp.i
+CMakeFiles/Project1_code.dir/Turma.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project1_code.dir/Turma.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Turma.cpp > CMakeFiles/Project1_code.dir/Turma.cpp.i
 
-CMakeFiles/Project1_code.dir/Class.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project1_code.dir/Class.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Class.cpp -o CMakeFiles/Project1_code.dir/Class.cpp.s
+CMakeFiles/Project1_code.dir/Turma.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project1_code.dir/Turma.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Turma.cpp -o CMakeFiles/Project1_code.dir/Turma.cpp.s
 
 CMakeFiles/Project1_code.dir/UC.cpp.o: CMakeFiles/Project1_code.dir/flags.make
 CMakeFiles/Project1_code.dir/UC.cpp.o: /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/UC.cpp
@@ -142,7 +142,7 @@ CMakeFiles/Project1_code.dir/Schedule.cpp.s: cmake_force
 # Object files for target Project1_code
 Project1_code_OBJECTS = \
 "CMakeFiles/Project1_code.dir/teste.cpp.o" \
-"CMakeFiles/Project1_code.dir/Class.cpp.o" \
+"CMakeFiles/Project1_code.dir/Turma.cpp.o" \
 "CMakeFiles/Project1_code.dir/UC.cpp.o" \
 "CMakeFiles/Project1_code.dir/Student.cpp.o" \
 "CMakeFiles/Project1_code.dir/Schedule.cpp.o"
@@ -151,7 +151,7 @@ Project1_code_OBJECTS = \
 Project1_code_EXTERNAL_OBJECTS =
 
 Project1_code: CMakeFiles/Project1_code.dir/teste.cpp.o
-Project1_code: CMakeFiles/Project1_code.dir/Class.cpp.o
+Project1_code: CMakeFiles/Project1_code.dir/Turma.cpp.o
 Project1_code: CMakeFiles/Project1_code.dir/UC.cpp.o
 Project1_code: CMakeFiles/Project1_code.dir/Student.cpp.o
 Project1_code: CMakeFiles/Project1_code.dir/Schedule.cpp.o

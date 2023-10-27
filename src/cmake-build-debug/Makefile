@@ -129,30 +129,6 @@ Project1_code/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/build
 .PHONY : Project1_code/fast
 
-Class.o: Class.cpp.o
-.PHONY : Class.o
-
-# target to build an object file
-Class.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/Class.cpp.o
-.PHONY : Class.cpp.o
-
-Class.i: Class.cpp.i
-.PHONY : Class.i
-
-# target to preprocess a source file
-Class.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/Class.cpp.i
-.PHONY : Class.cpp.i
-
-Class.s: Class.cpp.s
-.PHONY : Class.s
-
-# target to generate assembly for a file
-Class.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/Class.cpp.s
-.PHONY : Class.cpp.s
-
 Schedule.o: Schedule.cpp.o
 .PHONY : Schedule.o
 
@@ -200,6 +176,30 @@ Student.s: Student.cpp.s
 Student.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/Student.cpp.s
 .PHONY : Student.cpp.s
+
+Turma.o: Turma.cpp.o
+.PHONY : Turma.o
+
+# target to build an object file
+Turma.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/Turma.cpp.o
+.PHONY : Turma.cpp.o
+
+Turma.i: Turma.cpp.i
+.PHONY : Turma.i
+
+# target to preprocess a source file
+Turma.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/Turma.cpp.i
+.PHONY : Turma.cpp.i
+
+Turma.s: Turma.cpp.s
+.PHONY : Turma.s
+
+# target to generate assembly for a file
+Turma.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/Turma.cpp.s
+.PHONY : Turma.cpp.s
 
 UC.o: UC.cpp.o
 .PHONY : UC.o
@@ -258,15 +258,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Project1_code"
-	@echo "... Class.o"
-	@echo "... Class.i"
-	@echo "... Class.s"
 	@echo "... Schedule.o"
 	@echo "... Schedule.i"
 	@echo "... Schedule.s"
 	@echo "... Student.o"
 	@echo "... Student.i"
 	@echo "... Student.s"
+	@echo "... Turma.o"
+	@echo "... Turma.i"
+	@echo "... Turma.s"
 	@echo "... UC.o"
 	@echo "... UC.i"
 	@echo "... UC.s"
