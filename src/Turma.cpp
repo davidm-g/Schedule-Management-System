@@ -3,6 +3,7 @@
 //
 
 #include "Turma.h"
+#include "Student.h"
 
 Turma::Turma(std::string classcode) {
     this->classcode = classcode;
@@ -22,7 +23,6 @@ std::set<Student> Turma::getStudents() {
 
 void Turma::add_Schedule(Schedule sec){
     this->class_schedule.push_back(sec);
-
 }
 
 std::vector<Schedule> Turma::getSchedule() {

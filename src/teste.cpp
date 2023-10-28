@@ -40,6 +40,7 @@ void parse_file1(std::vector<UC>& uc_vector) {
 
 
 void parse_file2(std::vector<UC>& uc_vector,std::set<Student>& allstudents) {
+    set<string> temp_scode;
     ifstream stufile("students_classes.csv");
     string line;
     getline(stufile, line); // ler e ignorar a primeira linha
@@ -56,10 +57,16 @@ void parse_file2(std::vector<UC>& uc_vector,std::set<Student>& allstudents) {
                 std::vector<Turma> cl = uc.getClasses();
                 for (Turma &classe : cl) {
                     if (classe.getTurmaCode() == classcode) {
-                        Student stu = Student(scode,sname);
-                        classe.add_student(stu);
-                        if(allstudents.find(stu) == allstudents.end()){
+                        if(temp_scode.find(scode) == temp_scode.end()){
+                            Student stu = Student(scode,sname);
                             allstudents.insert(stu);
+                            classe.add_student(stu);
+                            break;
+                        }
+                        else{
+                            for(auto s: allstudents){
+                                if(s.getID() == scode) classe.add_student(s);
+                            }
                         }
                         break;
 
@@ -94,7 +101,6 @@ void parse_file3(std::vector<UC>& uc_vector) {
                     if (classe.getTurmaCode() == classcode) {
                         Schedule sch = Schedule(weekday,sth,du,type);
                         classe.add_Schedule(sch);
-                        break;
                     }
                 }
                 uc.setClasses(cl);
@@ -114,7 +120,6 @@ int main(){
 
     cout << "Número de UCs = " << uc_vector.size() << '\n';
     int count_stu = 0;
-    /*
     int count_sch = 0;
     for (auto uc : uc_vector) {
         for (auto cl : uc.getClasses()) {
@@ -124,19 +129,23 @@ int main(){
                      sch.get_duration() << ' ' << sch.get_type() << '\n';
                 count_sch++; // conta o número de horários
             }
-            for (auto stu : cl.getStudents()) {
-                cout << '\n' << stu.getID() << ' ' << stu.getName();
-                count_stu++;
-            }
-            cout << '\n' << "///////////////////////";
         }
     }
     cout << '\n' << "Número de horários = " << count_sch << '\n';
-    */
+    /*
     for (auto stu : allstudents) {
-        cout << stu.getID() << ' ' << stu.getName() << '\n';
-        count_stu++;
-    }
-    cout << "Número de estudantes = " << count_stu << endl;
-    return 0;
-}
+         cout << stu.getID() << ' ' << stu.getName() << '\n';
+         auto x = stu.getSchedule();
+         for (auto y : x) {
+             cout <<  y.first.first << ' ' << y.first.second << '\n';
+             cout << y.second.get_duration() << ' ' << y.second.get_starthour() << '\n';
+         }
+         count_stu++;
+        cout << '\n' << "///////////////////////";
+     }
+     */
+     //cout << uc_vector[0].getClasses()[0].getStudents().begin()->getSchedule().begin()->second.get_weekday();
+     return 0;
+ }
+
+// fazer allocate_schedules() depois dos parse

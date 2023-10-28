@@ -17,11 +17,11 @@ private:
 public:
     //Student();
     Student(std::string id, std::string name);
-    std::string getName();
     std::string getID() const;
     std::string getName() const;
-    map<pair<string, string>, Schedule> getSchedule();
-    void addStudentSchedule(string uc_code, std::string classcode, Schedule sec) const;
+    std::map<pair<string, string>, Schedule> getSchedule() const;
+    void addSchedule(Schedule sec,string uccode,string classcode);
+    void setSchedule(std::map<pair<string, string>, Schedule> s);
     bool operator< (const Student s1) const;
     bool operator== (const Student s1) const;
 };

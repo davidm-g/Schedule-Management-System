@@ -11,7 +11,7 @@ private:
     float start_hour;
     float duration;
     std::string type;
-    map<pair<string,string>,Schedule> student_schedule;
+
 public:
     Schedule(std::string weekday, float start_hour, float duration, std::string type);
     std::string get_weekday();
