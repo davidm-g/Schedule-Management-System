@@ -12,4 +12,7 @@ add_executable(Project1_code
         Turma.cpp
         UC.cpp
         Student.cpp
-        Schedule.cpp)
+        Schedule.cpp
+        Menu.cpp
+        Data.cpp
+        )

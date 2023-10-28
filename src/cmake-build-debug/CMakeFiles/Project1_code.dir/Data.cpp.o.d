@@ -1,6 +1,8 @@
-CMakeFiles/Project1_code.dir/teste.cpp.o: \
- /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/teste.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
+CMakeFiles/Project1_code.dir/Data.cpp.o: \
+ /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Data.cpp \
+ /usr/include/stdc-predef.h \
+ /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Data.h \
+ /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -175,6 +177,4 @@ CMakeFiles/Project1_code.dir/teste.cpp.o: \
  /usr/include/c++/11/bits/algorithmfwd.h \
  /usr/include/c++/11/bits/stl_heap.h \
  /usr/include/c++/11/bits/stl_tempbuf.h \
- /usr/include/c++/11/bits/uniform_int_dist.h \
- /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Data.h \
- /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Menu.h
+ /usr/include/c++/11/bits/uniform_int_dist.h

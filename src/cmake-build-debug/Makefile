@@ -129,6 +129,54 @@ Project1_code/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/build
 .PHONY : Project1_code/fast
 
+Data.o: Data.cpp.o
+.PHONY : Data.o
+
+# target to build an object file
+Data.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/Data.cpp.o
+.PHONY : Data.cpp.o
+
+Data.i: Data.cpp.i
+.PHONY : Data.i
+
+# target to preprocess a source file
+Data.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/Data.cpp.i
+.PHONY : Data.cpp.i
+
+Data.s: Data.cpp.s
+.PHONY : Data.s
+
+# target to generate assembly for a file
+Data.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/Data.cpp.s
+.PHONY : Data.cpp.s
+
+Menu.o: Menu.cpp.o
+.PHONY : Menu.o
+
+# target to build an object file
+Menu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/Menu.cpp.o
+.PHONY : Menu.cpp.o
+
+Menu.i: Menu.cpp.i
+.PHONY : Menu.i
+
+# target to preprocess a source file
+Menu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/Menu.cpp.i
+.PHONY : Menu.cpp.i
+
+Menu.s: Menu.cpp.s
+.PHONY : Menu.s
+
+# target to generate assembly for a file
+Menu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/Menu.cpp.s
+.PHONY : Menu.cpp.s
+
 Schedule.o: Schedule.cpp.o
 .PHONY : Schedule.o
 
@@ -258,6 +306,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Project1_code"
+	@echo "... Data.o"
+	@echo "... Data.i"
+	@echo "... Data.s"
+	@echo "... Menu.o"
+	@echo "... Menu.i"
+	@echo "... Menu.s"
 	@echo "... Schedule.o"
 	@echo "... Schedule.i"
 	@echo "... Schedule.s"

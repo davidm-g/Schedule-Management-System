@@ -1,6 +1,9 @@
-CMakeFiles/Project1_code.dir/teste.cpp.o: \
- /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/teste.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
+CMakeFiles/Project1_code.dir/Menu.cpp.o: \
+ /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Menu.cpp \
+ /usr/include/stdc-predef.h \
+ /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Menu.h \
+ /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Student.h \
+ /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -143,38 +146,35 @@ CMakeFiles/Project1_code.dir/teste.cpp.o: \
  /usr/include/c++/11/bits/locale_facets.tcc \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
- /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/fstream \
- /usr/include/c++/11/bits/codecvt.h \
+ /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/vector \
+ /usr/include/c++/11/bits/stl_uninitialized.h \
+ /usr/include/c++/11/bits/stl_vector.h \
+ /usr/include/c++/11/bits/stl_bvector.h \
+ /usr/include/c++/11/bits/vector.tcc \
+ /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Schedule.h \
+ /usr/include/c++/11/map /usr/include/c++/11/bits/stl_tree.h \
+ /usr/include/c++/11/ext/aligned_buffer.h \
+ /usr/include/c++/11/bits/stl_map.h /usr/include/c++/11/tuple \
+ /usr/include/c++/11/utility /usr/include/c++/11/bits/stl_relops.h \
+ /usr/include/c++/11/array /usr/include/c++/11/bits/uses_allocator.h \
+ /usr/include/c++/11/bits/invoke.h \
+ /usr/include/c++/11/bits/stl_multimap.h \
+ /usr/include/c++/11/bits/erase_if.h \
+ /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Turma.h \
+ /usr/include/c++/11/list /usr/include/c++/11/bits/stl_list.h \
+ /usr/include/c++/11/bits/allocated_ptr.h \
+ /usr/include/c++/11/bits/list.tcc /usr/include/c++/11/set \
+ /usr/include/c++/11/bits/stl_set.h \
+ /usr/include/c++/11/bits/stl_multiset.h \
+ /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/UC.h \
+ /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Data.h \
+ /usr/include/c++/11/fstream /usr/include/c++/11/bits/codecvt.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
  /usr/include/c++/11/bits/fstream.tcc /usr/include/c++/11/sstream \
- /usr/include/c++/11/bits/sstream.tcc \
- /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/UC.h \
- /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_uninitialized.h \
- /usr/include/c++/11/bits/stl_vector.h \
- /usr/include/c++/11/bits/stl_bvector.h \
- /usr/include/c++/11/bits/vector.tcc /usr/include/c++/11/set \
- /usr/include/c++/11/bits/stl_tree.h \
- /usr/include/c++/11/ext/aligned_buffer.h \
- /usr/include/c++/11/bits/stl_set.h \
- /usr/include/c++/11/bits/stl_multiset.h \
- /usr/include/c++/11/bits/erase_if.h \
- /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Turma.h \
- /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Student.h \
- /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Schedule.h \
- /usr/include/c++/11/map /usr/include/c++/11/bits/stl_map.h \
- /usr/include/c++/11/tuple /usr/include/c++/11/utility \
- /usr/include/c++/11/bits/stl_relops.h /usr/include/c++/11/array \
- /usr/include/c++/11/bits/uses_allocator.h \
- /usr/include/c++/11/bits/invoke.h \
- /usr/include/c++/11/bits/stl_multimap.h /usr/include/c++/11/list \
- /usr/include/c++/11/bits/stl_list.h \
- /usr/include/c++/11/bits/allocated_ptr.h \
- /usr/include/c++/11/bits/list.tcc /usr/include/c++/11/algorithm \
+ /usr/include/c++/11/bits/sstream.tcc /usr/include/c++/11/algorithm \
  /usr/include/c++/11/bits/stl_algo.h \
  /usr/include/c++/11/bits/algorithmfwd.h \
  /usr/include/c++/11/bits/stl_heap.h \
  /usr/include/c++/11/bits/stl_tempbuf.h \
- /usr/include/c++/11/bits/uniform_int_dist.h \
- /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Data.h \
- /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Menu.h
+ /usr/include/c++/11/bits/uniform_int_dist.h

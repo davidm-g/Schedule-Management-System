@@ -10,14 +10,13 @@
 
 class Student {
 private:
-    std::string id;
+    int id;
     std::string name;
     //std::vector<Schedule> student_schedule;
-    std::map<pair<string, string>, Schedule> student_schedule;
 public:
     //Student();
-    Student(std::string id, std::string name);
-    std::string getID() const;
+    Student(int id, std::string name);
+    int getID() const;
     std::string getName() const;
     std::map<pair<string, string>, Schedule> getSchedule() const;
     void addSchedule(Schedule sec,string uccode,string classcode);

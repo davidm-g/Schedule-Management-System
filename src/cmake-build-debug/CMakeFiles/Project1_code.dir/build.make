@@ -139,13 +139,43 @@ CMakeFiles/Project1_code.dir/Schedule.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project1_code.dir/Schedule.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Schedule.cpp -o CMakeFiles/Project1_code.dir/Schedule.cpp.s
 
+CMakeFiles/Project1_code.dir/Menu.cpp.o: CMakeFiles/Project1_code.dir/flags.make
+CMakeFiles/Project1_code.dir/Menu.cpp.o: /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Menu.cpp
+CMakeFiles/Project1_code.dir/Menu.cpp.o: CMakeFiles/Project1_code.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Project1_code.dir/Menu.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project1_code.dir/Menu.cpp.o -MF CMakeFiles/Project1_code.dir/Menu.cpp.o.d -o CMakeFiles/Project1_code.dir/Menu.cpp.o -c /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Menu.cpp
+
+CMakeFiles/Project1_code.dir/Menu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project1_code.dir/Menu.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Menu.cpp > CMakeFiles/Project1_code.dir/Menu.cpp.i
+
+CMakeFiles/Project1_code.dir/Menu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project1_code.dir/Menu.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Menu.cpp -o CMakeFiles/Project1_code.dir/Menu.cpp.s
+
+CMakeFiles/Project1_code.dir/Data.cpp.o: CMakeFiles/Project1_code.dir/flags.make
+CMakeFiles/Project1_code.dir/Data.cpp.o: /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Data.cpp
+CMakeFiles/Project1_code.dir/Data.cpp.o: CMakeFiles/Project1_code.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Project1_code.dir/Data.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Project1_code.dir/Data.cpp.o -MF CMakeFiles/Project1_code.dir/Data.cpp.o.d -o CMakeFiles/Project1_code.dir/Data.cpp.o -c /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Data.cpp
+
+CMakeFiles/Project1_code.dir/Data.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project1_code.dir/Data.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Data.cpp > CMakeFiles/Project1_code.dir/Data.cpp.i
+
+CMakeFiles/Project1_code.dir/Data.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project1_code.dir/Data.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Data.cpp -o CMakeFiles/Project1_code.dir/Data.cpp.s
+
 # Object files for target Project1_code
 Project1_code_OBJECTS = \
 "CMakeFiles/Project1_code.dir/teste.cpp.o" \
 "CMakeFiles/Project1_code.dir/Turma.cpp.o" \
 "CMakeFiles/Project1_code.dir/UC.cpp.o" \
 "CMakeFiles/Project1_code.dir/Student.cpp.o" \
-"CMakeFiles/Project1_code.dir/Schedule.cpp.o"
+"CMakeFiles/Project1_code.dir/Schedule.cpp.o" \
+"CMakeFiles/Project1_code.dir/Menu.cpp.o" \
+"CMakeFiles/Project1_code.dir/Data.cpp.o"
 
 # External object files for target Project1_code
 Project1_code_EXTERNAL_OBJECTS =
@@ -155,9 +185,11 @@ Project1_code: CMakeFiles/Project1_code.dir/Turma.cpp.o
 Project1_code: CMakeFiles/Project1_code.dir/UC.cpp.o
 Project1_code: CMakeFiles/Project1_code.dir/Student.cpp.o
 Project1_code: CMakeFiles/Project1_code.dir/Schedule.cpp.o
+Project1_code: CMakeFiles/Project1_code.dir/Menu.cpp.o
+Project1_code: CMakeFiles/Project1_code.dir/Data.cpp.o
 Project1_code: CMakeFiles/Project1_code.dir/build.make
 Project1_code: CMakeFiles/Project1_code.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Project1_code"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Project1_code"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Project1_code.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
