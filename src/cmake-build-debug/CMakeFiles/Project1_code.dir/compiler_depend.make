@@ -440,7 +440,25 @@ CMakeFiles/Project1_code.dir/Menu.cpp.o: /home/davidmg/Documents/school/2ND_YEAR
   /usr/include/c++/11/bits/algorithmfwd.h \
   /usr/include/c++/11/bits/stl_heap.h \
   /usr/include/c++/11/bits/stl_tempbuf.h \
-  /usr/include/c++/11/bits/uniform_int_dist.h
+  /usr/include/c++/11/bits/uniform_int_dist.h \
+  /usr/include/c++/11/stack \
+  /usr/include/c++/11/deque \
+  /usr/include/c++/11/bits/stl_deque.h \
+  /usr/include/c++/11/bits/deque.tcc \
+  /usr/include/c++/11/bits/stl_stack.h \
+  /usr/include/c++/11/iomanip \
+  /usr/include/c++/11/locale \
+  /usr/include/c++/11/bits/locale_facets_nonio.h \
+  /usr/include/c++/11/ctime \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
+  /usr/include/libintl.h \
+  /usr/include/c++/11/bits/locale_facets_nonio.tcc \
+  /usr/include/c++/11/bits/locale_conv.h \
+  /usr/include/c++/11/bits/unique_ptr.h \
+  /usr/include/c++/11/bits/quoted_string.h \
+  /usr/include/c++/11/queue \
+  /usr/include/c++/11/bits/stl_queue.h
 
 CMakeFiles/Project1_code.dir/Schedule.cpp.o: /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Schedule.cpp \
   /usr/include/stdc-predef.h \
@@ -1460,12 +1478,52 @@ CMakeFiles/Project1_code.dir/teste.cpp.o: /home/davidmg/Documents/school/2ND_YEA
   /usr/include/c++/11/bits/stl_tempbuf.h \
   /usr/include/c++/11/bits/uniform_int_dist.h \
   /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Data.h \
-  /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Menu.h
+  /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Menu.h \
+  /usr/include/c++/11/stack \
+  /usr/include/c++/11/deque \
+  /usr/include/c++/11/bits/stl_deque.h \
+  /usr/include/c++/11/bits/deque.tcc \
+  /usr/include/c++/11/bits/stl_stack.h \
+  /usr/include/c++/11/iomanip \
+  /usr/include/c++/11/locale \
+  /usr/include/c++/11/bits/locale_facets_nonio.h \
+  /usr/include/c++/11/ctime \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
+  /usr/include/libintl.h \
+  /usr/include/c++/11/bits/locale_facets_nonio.tcc \
+  /usr/include/c++/11/bits/locale_conv.h \
+  /usr/include/c++/11/bits/unique_ptr.h \
+  /usr/include/c++/11/bits/quoted_string.h
 
 
 /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/teste.cpp:
 
 /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/UC.cpp:
+
+/usr/include/c++/11/bits/stl_queue.h:
+
+/usr/include/c++/11/queue:
+
+/usr/include/c++/11/bits/quoted_string.h:
+
+/usr/include/c++/11/bits/locale_conv.h:
+
+/usr/include/c++/11/bits/locale_facets_nonio.tcc:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h:
+
+/usr/include/c++/11/ctime:
+
+/usr/include/c++/11/bits/locale_facets_nonio.h:
+
+/usr/include/c++/11/locale:
+
+/usr/include/c++/11/iomanip:
+
+/usr/include/c++/11/bits/stl_deque.h:
+
+/usr/include/c++/11/deque:
 
 /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Menu.h:
 
@@ -1504,6 +1562,8 @@ CMakeFiles/Project1_code.dir/teste.cpp.o: /home/davidmg/Documents/school/2ND_YEA
 /usr/include/c++/11/bits/stl_bvector.h:
 
 /usr/include/c++/11/vector:
+
+/usr/include/libintl.h:
 
 /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/UC.h:
 
@@ -1565,6 +1625,8 @@ CMakeFiles/Project1_code.dir/teste.cpp.o: /home/davidmg/Documents/school/2ND_YEA
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
+/usr/include/c++/11/bits/unique_ptr.h:
+
 /usr/include/c++/11/ext/type_traits.h:
 
 /usr/include/c++/11/ios:
@@ -1572,6 +1634,8 @@ CMakeFiles/Project1_code.dir/teste.cpp.o: /home/davidmg/Documents/school/2ND_YEA
 /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
+
+/usr/include/c++/11/stack:
 
 /usr/include/c++/11/bits/uniform_int_dist.h:
 
@@ -1783,6 +1847,8 @@ CMakeFiles/Project1_code.dir/teste.cpp.o: /home/davidmg/Documents/school/2ND_YEA
 
 /usr/include/x86_64-linux-gnu/bits/time.h:
 
+/usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h:
+
 /usr/include/c++/11/bits/stl_set.h:
 
 /usr/include/alloca.h:
@@ -1808,6 +1874,8 @@ CMakeFiles/Project1_code.dir/teste.cpp.o: /home/davidmg/Documents/school/2ND_YEA
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+
+/usr/include/c++/11/bits/deque.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
 
@@ -1854,6 +1922,8 @@ CMakeFiles/Project1_code.dir/teste.cpp.o: /home/davidmg/Documents/school/2ND_YEA
 /usr/include/c++/11/bits/stl_function.h:
 
 /usr/include/c++/11/bits/basic_ios.h:
+
+/usr/include/c++/11/bits/stl_stack.h:
 
 /usr/include/c++/11/ext/aligned_buffer.h:
 

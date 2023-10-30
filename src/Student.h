@@ -12,9 +12,7 @@ class Student {
 private:
     int id;
     std::string name;
-    //std::vector<Schedule> student_schedule;
 public:
-    //Student();
     Student(int id, std::string name);
     int getID() const;
     std::string getName() const;

@@ -19,6 +19,7 @@ class Data {
     public:
         Data();
         vector<UC> get_uc_vector();
+        void set_uc_vector(vector<UC> uc_vector);
         set<Student> get_all_students();
         void parse_file1();
         void parse_file2();

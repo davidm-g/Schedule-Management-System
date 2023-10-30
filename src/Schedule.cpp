@@ -31,7 +31,9 @@ string Schedule::get_type(){
 string Schedule::get_weekday(){
     return this->weekday;
 }
-
+float Schedule::get_endhour() {
+    return start_hour + duration;
+}
 int getDayNumber(const std::string& day) {
     map<string, int> days = { {"Monday" , 0}, {"Tuesday" , 1}, {"Wednesday" , 2},
                               {"Thursday" , 3}, {"Friday" , 4}};

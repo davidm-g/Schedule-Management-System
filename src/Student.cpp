@@ -18,7 +18,7 @@ std::string Student::getName() const {
 }
 
 bool Student::operator< (const Student s1) const{
-    return this->id < s1.getID();
+    return this->name < s1.getName();
 }
 
 bool Student::operator== (const Student s1) const {

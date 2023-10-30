@@ -15,6 +15,9 @@ vector<UC> Data::get_uc_vector() {
 set<Student> Data::get_all_students(){
     return this->allstudents;
 }
+void Data::set_uc_vector(vector<UC> uc_vector) {
+    this->uc_vector = uc_vector;
+}
 void Data::parse_file1() {
     ifstream ucfile("classes_per_uc.csv");
     string line;

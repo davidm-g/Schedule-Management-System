@@ -23,6 +23,7 @@ public:
     string get_uccode();
     string get_classcode();
     std::string get_type();
+    float get_endhour();
     bool operator< (const Schedule sch) const;
 };
 

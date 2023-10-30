@@ -10,16 +10,25 @@
 #include "Schedule.h"
 #include "UC.h"
 #include "Data.h"
+#include <stack>
 using namespace std;
 
 class Menu {
     public:
         Menu();
-        void consultStudentSchedule(int ID);
-        void consultClassSchedule(string classcode);
+        list<Schedule> consultStudentSchedule(int ID);
+        list<Schedule> consultClassSchedule(string classcode);
+        void listStudentsbyClass(string classcode1);
+        void listStudentsbyYear(char number);
         void listAllUCs();
         void listAllStudents();
-    private:
+        void listStudentsbyUC(string uce);
+        void maxUCs();
+        void addUC(int ID,string name, string uc);
+        bool checkMaxUC (int id);
+        bool compatibleSchedules (list<Schedule> current, vector<Schedule> novo);
+        string min_class(string uccode);
+private:
         Data d;
 };
 
