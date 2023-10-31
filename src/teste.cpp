@@ -23,7 +23,7 @@ int main(){
         std::cout << "2. View Student Schedule" << std::endl;
         std::cout << "3. Consult UCs enrollment per student" << std::endl;
         std::cout << "4. UC changes" << std::endl;
-        std::cout << "5. Class changes" << std::endl;
+        std::cout << "5. Switch class" << std::endl;
         std::cout << "6. List the students within a certain Class" << std::endl;
         std::cout << "7. List all students by Year:" << std::endl;
         std::cout << "8. UCs with the greatest number of students" << std::endl;
@@ -118,7 +118,18 @@ int main(){
             }
             case 5:
             {
-
+                int id;
+                string uc, target_class, og_classcode;
+                cout << "Please enter the id of the student: ";
+                cin >> id;
+                cout << "Please enter the uc to manipulate: ";
+                cin >> uc;
+                cout << "Please enter the desired class: ";
+                cin >> target_class;
+                og_classcode = m.ConsultClassbyUC(id, uc);
+                if(m.canaddClass(id,target_class,uc)){
+                    m.removeClass(id, uc, og_classcode);
+                }
                 break;
             }
             case 6:

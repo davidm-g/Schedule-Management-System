@@ -32,6 +32,9 @@ class Menu {
         bool checkMaxUC (int id);
         bool compatibleSchedules (list<Schedule> current, vector<Schedule> novo);
         bool canaddUC (int id, string source_uc, string target_uc);
+        string ConsultClassbyUC(int id, string uc);
+        bool canaddClass(int id, string target_class, string uc);
+        void removeClass(int id, string uc, string classcode);
 private:
         Data d;
 };

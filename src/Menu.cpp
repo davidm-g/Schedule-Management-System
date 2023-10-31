@@ -359,6 +359,121 @@ bool Menu::canaddUC(int id, string source_uc, string target_uc) {
 
 }
 
+string Menu::ConsultClassbyUC(int id, string uc){
+    vector<UC> temp = d.get_uc_vector();
+    for(auto uc1: temp){
+        if(uc1.getcode() == uc){
+            for(auto turma: uc1.getClasses()){
+                for(auto stu: turma.getStudents()){
+                    if(stu.getID() == id){
+                        return turma.getTurmaCode();
+                    }
+                }
+            }
+        }
+    }
+}
+bool Menu::canaddClass(int id, std::string target_class, std::string uc) {
+    vector<UC> temp = d.get_uc_vector();
+    list<Schedule> current = consultStudentSchedule(id);
+    for (auto it = current.begin(); it != current.end();it++) {
+        if (it->get_uccode() == uc)
+            auto it1 = current.erase(it);
+        break;
+    }
+    string name;
+    string source_classcode = ConsultClassbyUC(id, uc);
+    bool exists = false;
+    for (auto stu: d.get_all_students()) {
+        if (stu.getID() == id) {
+            exists = true;
+            name = stu.getName();
+            break;
+        }
+    }
+    if (exists) {
+        for (auto &uc1: temp) {
+            if (uc1.getcode() == uc) { // The UC we want to add the student to
+                vector<Turma> compatible_classes;
+                vector<Turma> turmas = uc1.getClasses();
+                for (auto &turma1: turmas) {
+                    bool flag = true;// ver se todas as turmas estão em equilíbrio
+                    for (auto &turma2: turmas) {
+                        if (turma1.getTurmaCode() != turma2.getTurmaCode()) {
+                            int n;
+
+                            if (turma1.getTurmaCode() == source_classcode)
+                                n = (turma1.getStudents().size() - 1) - turma2.getStudents().size();
+
+                            else if (turma2.getTurmaCode() == source_classcode)
+                                n = turma1.getStudents().size() - (turma2.getStudents().size() - 1);
+
+                            else
+                                n = turma1.getStudents().size() - turma2.getStudents().size();
+
+                            if (n >= 4) { //limit for class equilibrium
+                                flag = false;
+                                break;
+                            }
+                        }
+                    }
+                    if (flag) compatible_classes.push_back(turma1);
+                }
+                std::sort(compatible_classes.begin(), compatible_classes.end());
+                bool caninsert = false;
+                for (auto turma: compatible_classes) {
+                    if(turma.getTurmaCode() == target_class){
+                        if (compatibleSchedules(current, turma.getSchedule()) ) {
+                            caninsert = true;
+                            break;
+                        }
+                    }
+                }
+                if (!caninsert) {
+                    cout << "It's not possible to switch the student to the given class." << endl;
+                    return false;
+                }
+                else {
+                    for (auto &turma: turmas) {
+                        if (target_class == turma.getTurmaCode()) {
+                            Student stu = Student(id, name);
+                            turma.add_student(stu);
+                            cout << "The student was added to class " << target_class << " of " << uc <<
+                            " and removed from "<< source_classcode<< endl;
+                            break;
+                        }
+                    }
+                    uc1.setClasses(turmas);
+                }
+            }
+        }
+        d.set_uc_vector(temp);
+        return true;
+    }
+}
+void Menu::removeClass(int id, string uc1, string classcode){
+    vector<UC> temp = d.get_uc_vector();
+    for(auto &uc : temp){
+        if(uc1 == uc.getcode()){
+            vector<Turma> turmas = uc.getClasses();
+            for(auto &turma : turmas) {
+                if (turma.getTurmaCode() == classcode) {
+                    set<Student> students = turma.getStudents();
+                    for (auto it = students.begin(); it != students.end(); it++) {
+                        if (it->getID() == id) {
+                            auto it1 = students.erase(it);
+                            break;
+                        }
+                    }
+                    turma.setStudents(students);
+                }
+            }
+                uc.setClasses(turmas);
+                break;
+        }
+    }
+    d.set_uc_vector(temp);
+}
 Menu::Menu() {
     this->d = Data();
     d.parse_file1();
