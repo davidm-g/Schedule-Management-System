@@ -1,5 +1,5 @@
-    //
-// Created by davidmg on 28-10-2023.
+//
+//
 //
 
 #ifndef PROJECT1_CODE_MENU_H
@@ -31,7 +31,7 @@ class Menu {
         void removeUC(int ID, string uc1);
         bool checkMaxUC (int id);
         bool compatibleSchedules (list<Schedule> current, vector<Schedule> novo);
-        void switchUC (int id, string uc1, string uc2);
+        bool canaddUC (int id, string source_uc, string target_uc);
 private:
         Data d;
 };

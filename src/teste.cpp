@@ -88,13 +88,19 @@ int main(){
                     }
                     case 2: {
                         int id;
-                        string UC1, UC2;
+                        string uc1, uc2;
                         cout << "Please enter the id of the student: ";
                         cin >> id;
-                        cout << "Please enter the current uccode: ";
-                        cin >> UC1;
-                        cout << "Please enter the new uccode: ";
-                        cin >> UC2;
+                        cout << "Please enter the uccode of the UC you want to remove: ";
+                        cin >> uc1;
+                        cout << "Please enter the uccode of the UC you want to add: ";
+                        cin >> uc2;
+                        if(m.canaddUC(id,uc1,uc2)){
+                            m.removeUC(id,uc1);
+                        }
+                        else{
+                            cout << "The student can not change UCs\n";
+                        }
                         break;
                     }
                     case 3: {

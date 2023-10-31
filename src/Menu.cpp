@@ -234,7 +234,7 @@ bool Menu::checkMaxUC (int id) {
         }
     }
     if (c >= 7) return true;
-    else if (c < 6) return false;
+    else return false;
 }
 
 bool Menu::compatibleSchedules(list<Schedule> current, vector<Schedule> novo) {
@@ -287,9 +287,13 @@ void Menu::removeUC(int ID, string uc1){
     }
 }
 
-void Menu::switchUC(int id, string uc1, string uc2) {
-    /*
+bool Menu::canaddUC(int id, string source_uc, string target_uc) {
     list<Schedule> current = consultStudentSchedule(id);
+    for (auto it = current.begin(); it != current.end();it++) {
+        if (it->get_uccode() == source_uc)
+            auto it1 = current.erase(it);
+            break;
+    }
     string name;
     vector<UC> temp = d.get_uc_vector();
     bool exists = false;
@@ -301,59 +305,58 @@ void Menu::switchUC(int id, string uc1, string uc2) {
         }
     }
     if (exists) {
-        if(checkMaxUC(id)) cout << "This student can not be added to more UCs"; //chech if the student is register in more than 7 UCs
-        else { // This student can be added to more UCs
-            for(auto &uc3 : temp) {
-                if(uc1.getcode() == ) { // The UC we want to add the student to
-
-                    vector<Turma> compatible_classes;
-                    vector<Turma> turmas = uc1.getClasses();
-                    for (auto &turma1 : turmas){
-                        bool flag = true;// ver se todas as turmas estão em equilíbrio
-                        for (auto &turma2 : turmas) {
-                            if (turma1.getTurmaCode() != turma2.getTurmaCode()) {
-                                int n = turma1.getStudents().size() - turma2.getStudents().size();
-                                if(n >= 4){ //limit for class equilibrium
-                                    flag = false;
-                                    break;
-                                }
-                            }
-                        }
-                        if(flag) compatible_classes.push_back(turma1);
-                    }
-                    std::sort(compatible_classes.begin(), compatible_classes.end());
-                    string classicode;
-                    bool caninsert = false;
-                    for(auto turma : compatible_classes){
-                        if(compatibleSchedules(current,turma.getSchedule())){
-                            classicode = turma.getTurmaCode();
-                            caninsert=true;
-                            break;
-                        }
-                    }
-                    if(!caninsert){
-                        cout<<"The student can't be added to the desired UC." << '\n';
-                    }
-                    else{
-                        for(auto &turma : turmas){
-                            if(classicode == turma.getTurmaCode()){
-                                Student stu = Student(ID,name);
-                                turma.add_student(stu);
-                                cout<<"The student was added to class "<< classicode<<"."<<endl;
+        for (auto &uc1: temp) {
+            if (uc1.getcode() == target_uc) { // The UC we want to add the student to
+                vector<Turma> compatible_classes;
+                vector<Turma> turmas = uc1.getClasses();
+                for (auto &turma1: turmas) {
+                    bool flag = true;// ver se todas as turmas estão em equilíbrio
+                    for (auto &turma2: turmas) {
+                        if (turma1.getTurmaCode() != turma2.getTurmaCode()) {
+                            int n = turma1.getStudents().size() - turma2.getStudents().size();
+                            if (n >= 4) { //limit for class equilibrium
+                                flag = false;
                                 break;
                             }
                         }
-                        uc1.setClasses(turmas);
+                    }
+                    if (flag) compatible_classes.push_back(turma1);
+                }
+                std::sort(compatible_classes.begin(), compatible_classes.end());
+                string classicode;
+                bool caninsert = false;
+                for (auto turma: compatible_classes) {
+                    if (compatibleSchedules(current, turma.getSchedule())) {
+                        classicode = turma.getTurmaCode();
+                        caninsert = true;
+                        break;
                     }
                 }
+                if (!caninsert) {
+                    return false;
+                }
+                else {
+                    //cout <<"The student was removed from "<< source_uc <<" and ";
+                    for (auto &turma: turmas) {
+                        if (classicode == turma.getTurmaCode()) {
+                            Student stu = Student(id, name);
+                            turma.add_student(stu);
+                            cout << "The student was added to class " << classicode << " of " <<target_uc<<endl;
+                            break;
+                        }
+                    }
+                    uc1.setClasses(turmas);
+                }
             }
-            d.set_uc_vector(temp);
         }
+        d.set_uc_vector(temp);
+        return true;
     }
     else {
         cout << "Please enter a valid student id with 9 digits." << '\n';
+        return false;
     }
-     */
+
 }
 
 Menu::Menu() {
