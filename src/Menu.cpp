@@ -3,9 +3,7 @@
 //
 
 #include "Menu.h"
-#include <algorithm>
-#include <iomanip>
-#include <queue>
+
 
 list<Schedule> Menu::consultStudentSchedule(int ID){
     cout << '\n';
@@ -24,7 +22,7 @@ list<Schedule> Menu::consultStudentSchedule(int ID){
         }
     }
     if(v.empty())
-        cout << "Please enter a valid student id with 9 digits" << '\n';
+        cout << "Please enter a valid student id with 9 digits." << '\n';
     v.sort();
     return v;
 }
@@ -90,25 +88,28 @@ void Menu::listStudentsbyYear(char number){
 void Menu::listStudentsbyUC(string uce){
     cout << '\n';
     vector<UC> temp = d.get_uc_vector();
-    list<Student> l;
+
     for(UC uc : temp) {
         if(uc.getcode() == uce){
             for(Turma turma : uc.getClasses()){
+                list<Student> l;
                 cout << turma.getTurmaCode() << '\n';
                 for (auto stu: turma.getStudents())
                     l.push_back(stu);
-
+                l.sort();
+                if (l.empty()) cout << "Please enter a valid UC code in the format (L.EICXXX)" << '\n';
+                for(auto stu1: l){
+                    cout << stu1.getID() << ' ' << stu1.getName()  << '\n';
+                }
+                cout << "Class size: " << l.size() << '\n' << '\n';
 
             }
             break;
         }
     }
 
-    l.sort();
-    if (l.empty()) cout << "Please enter a valid UC code in the format (L.EICXXX)" << '\n';
-    for(auto stu1: l){
-        cout << stu1.getID() << ' ' << stu1.getName() << '\n';
-    }
+
+
 
 }
 void Menu::listAllUCs() {
@@ -152,33 +153,62 @@ void Menu::maxUCs() {
     }
     cout << "With " << temp << " students" << endl;
 }
-void Menu::addUC(int ID,string name, string uc) {
+void Menu::addUC(int ID, string uc) {
     list<Schedule> current = consultStudentSchedule(ID);
+    string name;
     vector<UC> temp = d.get_uc_vector();
     bool exists = false;
     for(auto stu: d.get_all_students()){
         if(stu.getID() == ID){
             exists = true;
+            name = stu.getName();
             break;
         }
     }
     if (exists) {
-       if(checkMaxUC(ID)) cout << "This student can not be added to more UCs";
+       if(checkMaxUC(ID)) cout << "This student can not be added to more UCs"; //chech if the student is register in more than 7 UCs
        else { // This student can be added to more UCs
-            for(auto uc1 : temp) {
+            for(auto &uc1 : temp) {
                 if(uc1.getcode() == uc) { // The UC we want to add the student to
-                    bool flag = true;
-                    while(flag) {
-                        string classicode = min_class(uc);
-                        for (auto turma: uc1.getClasses()) {
-                            if (turma.getTurmaCode() == classicode) {
-                                if(compatibleSchedules(current,turma.getSchedule())){
-                                    Student stu = Student(ID,name);
-                                    turma.add_student(stu);
+
+                    vector<Turma> compatible_classes;
+                    vector<Turma> turmas = uc1.getClasses();
+                    for (auto &turma1 : turmas){
+                        bool flag = true;// ver se todas as turmas estão em equilíbrio
+                        for (auto &turma2 : turmas) {
+                            if (turma1.getTurmaCode() != turma2.getTurmaCode()) {
+                                int n = turma1.getStudents().size() - turma2.getStudents().size();
+                                if(n >= 4){ //limit for class equilibrium
                                     flag = false;
-                                }
+                                    break;
+                            }
                             }
                         }
+                        if(flag) compatible_classes.push_back(turma1);
+                    }
+                    std::sort(compatible_classes.begin(), compatible_classes.end());
+                    string classicode;
+                    bool caninsert = false;
+                    for(auto turma : compatible_classes){
+                        if(compatibleSchedules(current,turma.getSchedule())){
+                            classicode = turma.getTurmaCode();
+                            caninsert=true;
+                            break;
+                        }
+                    }
+                    if(!caninsert){
+                        cout<<"The student can't be added to the desired UC." << '\n';
+                    }
+                    else{
+                        for(auto &turma : turmas){
+                            if(classicode == turma.getTurmaCode()){
+                                Student stu = Student(ID,name);
+                                turma.add_student(stu);
+                                cout<<"The student was added to class "<< classicode<<"."<<endl;
+                                break;
+                            }
+                        }
+                        uc1.setClasses(turmas);
                     }
                 }
             }
@@ -186,7 +216,7 @@ void Menu::addUC(int ID,string name, string uc) {
        }
     }
     else {
-        cout << "The given student does not exist." << '\n';
+        cout << "Please enter a valid student id with 9 digits." << '\n';
     }
 }
 
@@ -208,44 +238,124 @@ bool Menu::checkMaxUC (int id) {
 }
 
 bool Menu::compatibleSchedules(list<Schedule> current, vector<Schedule> novo) {
-
     for(auto sche: novo) {
         for(auto sche1 : current) {
             if (sche1.get_endhour() > sche.get_starthour() &&
-                sche1.get_starthour() < sche.get_endhour()){
-                if(sche1.get_type() == "T" || sche.get_type() == "T") return true;
+                sche1.get_starthour() < sche.get_endhour() &&
+                (sche.get_weekday() == sche1.get_weekday())) {
+                if(sche1.get_type() == "T" || sche.get_type() == "T")
+                    return true;
                 else return false;
             }
         }
     }
     return true;
 }
-
-string Menu::min_class(string uccode) {
-    stack<Turma> classes;
-    stack<int> min_occup;
-
-    for(UC uc : d.get_uc_vector()) {
-        if(uc.getcode() == uccode) {
-            for (auto turma: uc.getClasses()) {
-                int count = 0;
-                for (auto stu: turma.getStudents()) count++;
-                if (classes.empty()) {
-                    classes.push(turma);
-                    min_occup.push(count);
-                }
-                else {
-                    if (min_occup.top() >= count) {
-                        classes.push(turma);
-                        min_occup.push(count);
-                    }
-                }
-            }
+void Menu::removeUC(int ID, string uc1){
+    vector<UC> temp = d.get_uc_vector();
+    bool exists = false;
+    for(auto stu: d.get_all_students()){
+        if(stu.getID() == ID){
+            exists = true;
             break;
         }
     }
-    return classes.top().getTurmaCode();
+    if(exists){
+        for(auto &uc : temp){
+            if(uc1 == uc.getcode()){
+                vector<Turma> turmas = uc.getClasses();
+                for(auto &turma : turmas){
+                    set<Student> students = turma.getStudents();
+                    for(auto it = students.begin(); it != students.end(); it++){
+                        if(it->getID() == ID) {
+                            auto it1 = students.erase(it);
+                            break;
+                        }
+                    }
+                    turma.setStudents(students);
+
+                }
+                uc.setClasses(turmas);
+                break;
+            }
+        }
+        d.set_uc_vector(temp);
+        cout << "The student was removed from the given UC." << '\n';
+    }
+    else {
+        cout << "Please enter a valid student id with 9 digits." << '\n';
+    }
 }
+
+void Menu::switchUC(int id, string uc1, string uc2) {
+    /*
+    list<Schedule> current = consultStudentSchedule(id);
+    string name;
+    vector<UC> temp = d.get_uc_vector();
+    bool exists = false;
+    for(auto stu: d.get_all_students()){
+        if(stu.getID() == id){
+            exists = true;
+            name = stu.getName();
+            break;
+        }
+    }
+    if (exists) {
+        if(checkMaxUC(id)) cout << "This student can not be added to more UCs"; //chech if the student is register in more than 7 UCs
+        else { // This student can be added to more UCs
+            for(auto &uc3 : temp) {
+                if(uc1.getcode() == ) { // The UC we want to add the student to
+
+                    vector<Turma> compatible_classes;
+                    vector<Turma> turmas = uc1.getClasses();
+                    for (auto &turma1 : turmas){
+                        bool flag = true;// ver se todas as turmas estão em equilíbrio
+                        for (auto &turma2 : turmas) {
+                            if (turma1.getTurmaCode() != turma2.getTurmaCode()) {
+                                int n = turma1.getStudents().size() - turma2.getStudents().size();
+                                if(n >= 4){ //limit for class equilibrium
+                                    flag = false;
+                                    break;
+                                }
+                            }
+                        }
+                        if(flag) compatible_classes.push_back(turma1);
+                    }
+                    std::sort(compatible_classes.begin(), compatible_classes.end());
+                    string classicode;
+                    bool caninsert = false;
+                    for(auto turma : compatible_classes){
+                        if(compatibleSchedules(current,turma.getSchedule())){
+                            classicode = turma.getTurmaCode();
+                            caninsert=true;
+                            break;
+                        }
+                    }
+                    if(!caninsert){
+                        cout<<"The student can't be added to the desired UC." << '\n';
+                    }
+                    else{
+                        for(auto &turma : turmas){
+                            if(classicode == turma.getTurmaCode()){
+                                Student stu = Student(ID,name);
+                                turma.add_student(stu);
+                                cout<<"The student was added to class "<< classicode<<"."<<endl;
+                                break;
+                            }
+                        }
+                        uc1.setClasses(turmas);
+                    }
+                }
+            }
+            d.set_uc_vector(temp);
+        }
+    }
+    else {
+        cout << "Please enter a valid student id with 9 digits." << '\n';
+    }
+     */
+}
+
 Menu::Menu() {
     this->d = Data();
     d.parse_file1();

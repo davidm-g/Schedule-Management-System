@@ -11,6 +11,9 @@
 #include "UC.h"
 #include "Data.h"
 #include <stack>
+#include <algorithm>
+#include <iomanip>
+#include <queue>
 using namespace std;
 
 class Menu {
@@ -24,10 +27,11 @@ class Menu {
         void listAllStudents();
         void listStudentsbyUC(string uce);
         void maxUCs();
-        void addUC(int ID,string name, string uc);
+        void addUC(int ID, string uc);
+        void removeUC(int ID, string uc1);
         bool checkMaxUC (int id);
         bool compatibleSchedules (list<Schedule> current, vector<Schedule> novo);
-        string min_class(string uccode);
+        void switchUC (int id, string uc1, string uc2);
 private:
         Data d;
 };

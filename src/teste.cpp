@@ -21,9 +21,9 @@ int main(){
         std::cout << "Welcome to Schedule Management System" << std::endl;
         std::cout << "1. View Class Schedule" << std::endl;
         std::cout << "2. View Student Schedule" << std::endl;
-        std::cout << "3. Consult UCs enrolment per student" << std::endl;
-        std::cout << "4. Class changes" << std::endl;
-        std::cout << "5. UC changes" << std::endl;
+        std::cout << "3. Consult UCs enrollment per student" << std::endl;
+        std::cout << "4. UC changes" << std::endl;
+        std::cout << "5. Class changes" << std::endl;
         std::cout << "6. List the students within a certain Class" << std::endl;
         std::cout << "7. List all students by Year:" << std::endl;
         std::cout << "8. UCs with the greatest number of students" << std::endl;
@@ -64,24 +64,27 @@ int main(){
                 }
                 break;
             }
-            case 3:
+            case 3: {
                 // Implement functionality for adding a student
                 break;
+            }
             case 4:
             {
                 cout << "Select the desired option: " << '\n'
-                    << "1. Add UC\n" << "2. Remove UC\n"
-                    << "3. Switch UCs\n";
+                    << "1. Add UC\n" << "2. Switch UCs\n"
+                    << "3. Remove UC\n";
                 int n;
                 cin >> n;
                 switch (n){
                     case 1: {
                         int id;
-                        string UC;
+                        string uc;
                         cout << "Please enter the id of the student: ";
                         cin >> id;
                         cout << "Please enter the uccode: ";
-                        cin >> UC;
+                        cin >> uc;
+                        m.addUC(id, uc);
+                        break;
                     }
                     case 2: {
                         int id;
@@ -92,17 +95,19 @@ int main(){
                         cin >> UC1;
                         cout << "Please enter the new uccode: ";
                         cin >> UC2;
+                        break;
                     }
                     case 3: {
                         int id;
-                        string UC;
+                        string uc;
                         cout << "Please enter the id of the student: ";
                         cin >> id;
                         cout << "Please enter the uccode: ";
-                        cin >> UC;
+                        cin >> uc;
+                        m.removeUC(id, uc);
+                        break;
                     }
                 }
-
                 break;
             }
             case 5:
@@ -139,15 +144,18 @@ int main(){
                 m.listStudentsbyUC(uce);
                 break;
             }
-            case 10:
+            case 10: {
                 m.listAllUCs();
                 break;
-            case 11:
+            }
+            case 11: {
                 m.listAllStudents();
                 break;
-            case 12:
+            }
+            case 12: {
                 std::cout << "Goodbye!" << std::endl;
                 return 0;
+            }
             default:
                 std::cout << "Invalid choice. Please enter a valid option (1-12)." << std::endl;
                 break;

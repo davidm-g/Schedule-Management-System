@@ -28,3 +28,12 @@ void Turma::add_Schedule(Schedule sec){
 std::vector<Schedule> Turma::getSchedule() {
     return this->class_schedule;
 }
+
+bool Turma::operator< (Turma t1) const {
+    if (students.size() < t1.getStudents().size()) return true;
+    else if (students.size() == t1.getStudents().size()) return classcode < t1.getTurmaCode();
+    return false;
+}
+void Turma::setStudents(set<Student> students){
+    this->students=students;
+}

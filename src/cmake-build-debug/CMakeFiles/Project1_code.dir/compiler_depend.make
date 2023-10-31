@@ -1494,7 +1494,9 @@ CMakeFiles/Project1_code.dir/teste.cpp.o: /home/davidmg/Documents/school/2ND_YEA
   /usr/include/c++/11/bits/locale_facets_nonio.tcc \
   /usr/include/c++/11/bits/locale_conv.h \
   /usr/include/c++/11/bits/unique_ptr.h \
-  /usr/include/c++/11/bits/quoted_string.h
+  /usr/include/c++/11/bits/quoted_string.h \
+  /usr/include/c++/11/queue \
+  /usr/include/c++/11/bits/stl_queue.h
 
 
 /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/teste.cpp:

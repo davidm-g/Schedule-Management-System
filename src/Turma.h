@@ -22,9 +22,10 @@ public:
     std::string getTurmaCode();
     void add_student(Student &s1);
     std::set<Student> getStudents();
+    void setStudents(set<Student> students);
     void add_Schedule(Schedule sec);
     std::vector<Schedule> getSchedule();
+    bool operator< (Turma t1) const;
 };
-
 
 #endif
