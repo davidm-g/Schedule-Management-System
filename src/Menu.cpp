@@ -89,7 +89,14 @@ void Menu::undo() {
         }
     }
     else if(temp.top().getFunction() == "switchClass") {
+        if (canaddClass(temp.top().get_id(), temp.top().getSource(), temp.top().getUcode())) {
+            removeClass(temp.top().get_id(), temp.top().getUcode(), temp.top().getTarget());
+            cout << "Action reverted succesfully." << '\n';
+        }
 
+        else {
+        cout << "It was not possible to revert the last action due to class occupation requirements.";
+        }
     }
     temp.pop();
     d.set_record(temp);
