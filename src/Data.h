@@ -14,7 +14,6 @@
 #include <algorithm>
 
 
-
 class Data {
     private:
         vector<UC> uc_vector;

@@ -9,6 +9,7 @@ Data::Data() {
     this->uc_vector = vector<UC>();
     this->allstudents = set<Student>();
     this->record = stack<Action>();
+
 }
 
 void Data::addAction(Action a) {

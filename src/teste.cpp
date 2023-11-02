@@ -20,7 +20,6 @@ int main(){
     int choice;
     stack<string> lastchange;
     while (true) {
-
         std::cout << "-------------------------------------" << '\n';
         std::cout << "Welcome to Schedule Management System" << std::endl;
         std::cout << "1. View Class Schedule" << std::endl;
@@ -34,10 +33,17 @@ int main(){
         std::cout << "9. List all Students by UC" << std::endl;
         std::cout << "10. List all UCs" << std::endl;
         std::cout << "11. List all Students" << std::endl;
-        std::cout << "12. Exit" << std::endl;
-        if (!lastchange.empty()) std::cout << "13. Undo last system change (" << lastchange.top() << ')' << std::endl;
-        std::cout << "Please enter your choice (1-13): ";
-        std::cin >> choice;
+        std::cout << "12. See log" << std::endl;
+        std::cout << "13. Exit" << std::endl;
+        if (!lastchange.empty()) std::cout << "14. Undo last system change (" << lastchange.top() << ')' << std::endl;
+        std::cout << "Please enter your number choice: ";
+        cin >> choice;
+        if(!cin) {
+            std::cout << "Invalid option." << '\n'
+            << "The program will stop.";
+            break;
+        }
+
         std::cout << "-------------------------------------" << '\n';
 
         switch (choice) {
@@ -60,6 +66,7 @@ int main(){
                          "->" << setw(5) << eh << " | " << setw(2) << s.get_type() << " | "
                          << s.get_uccode() << '\n';
                 }
+
                 break;
             }
             case 2:
@@ -81,6 +88,7 @@ int main(){
                          "->" << setw(5) << eh << " | " << setw(2) << s.get_type() << " | "
                          << setw(8) << s.get_uccode() << " | " << s.get_classcode() << '\n';
                 }
+
                 break;
             }
             case 3: {
@@ -180,15 +188,22 @@ int main(){
                 }
                 break;
             }
-            case 6:
-            {
+            case 6: {
                 std::string clascode;
+                int n;
                 cout << "Please enter the class code: ";
                 cin >> clascode;
-                m.listStudentsbyClass(clascode);
+                set<Student> s = m.listStudentsbyClass(clascode);
+                if (s.empty())
+                    cout << "Please enter a valid class code in the format (XLEICXX)" << '\n';
+
+                else {
+                    for (auto stu: s)
+                        cout << stu.getID() << ' ' << stu.getName() << '\n';
+                    cout << "Number of students on class " << clascode << " = " << s.size() << '\n';
+                }
                 break;
             }
-
             case 7:
             {
                 char year;
@@ -217,18 +232,27 @@ int main(){
                 m.listAllStudents();
                 break;
             }
-            case 12:{
+            case 12: {
+                queue<string> log_cpy = m.getLog();
+                while(!log_cpy.empty()) {
+                    cout << log_cpy.front() << '\n';
+                    log_cpy.pop();
+                }
+                break;
+            }
+            case 13: {
                 std::cout << "Goodbye!" << std::endl;
                 return 0;
             }
-            case 13: {
+            case 14: {
                 m.undo();
                 lastchange.pop();
                 break;
             }
-            default:
-                std::cout << "Invalid choice. Please enter a valid option (1-13)." << std::endl;
+            default: {
+                std::cout << "Invalid choice. Please enter a valid option." << std::endl;
                 break;
+            }
         }
     }
 }

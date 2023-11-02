@@ -14,6 +14,7 @@
 #include <algorithm>
 #include <iomanip>
 #include <queue>
+#include <queue>
 using namespace std;
 
 class Menu {
@@ -25,7 +26,7 @@ class Menu {
         list<Schedule> consultStudentSchedule(int ID);
         list<Schedule> consultClassSchedule(string classcode);
         list<Schedule> consultUCSchedule(string uccode);
-        void listStudentsbyClass(string classcode1);
+        set<Student> listStudentsbyClass(string classcode1);
         void listStudentsbyYear(char number);
         void listAllUCs();
         void listAllStudents();
@@ -39,8 +40,10 @@ class Menu {
         string ConsultClassbyUC(int id, string uc);
         bool canaddClass(int id, string target_class, string uc);
         void removeClass(int id, string uc, string classcode);
+        queue<string> getLog();
 private:
         Data d;
+        queue<string> log;
 };
 
 

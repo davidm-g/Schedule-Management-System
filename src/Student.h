@@ -13,7 +13,7 @@ private:
     int id;
     std::string name;
 public:
-    Student(int id, std::string name);
+    Student(int id, std::string name = "");
     int getID() const;
     std::string getName() const;
     std::map<pair<string, string>, Schedule> getSchedule() const;

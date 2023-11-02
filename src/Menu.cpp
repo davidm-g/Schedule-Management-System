@@ -4,6 +4,9 @@
 
 #include "Menu.h"
 
+queue<string> Menu::getLog() {
+    return this->log;
+}
 void Menu::add_Action(Action a) {
     this->d.addAction(a);
 }
@@ -105,21 +108,31 @@ list<Schedule> Menu::consultStudentSchedule(int ID){
     cout << '\n';
     std::vector<UC> temp = d.get_uc_vector();
     list<Schedule> v;
+    string name;
+    for(auto stu : d.get_all_students()){
+        if(stu.getID() == ID) name = stu.getName();
+    }
+    for(UC uc: temp) {
+        for (Turma turma: uc.getClasses()) {
+            set<Student> students = turma.getStudents();
+            Student stu = Student(ID,name);
+            auto studentIter = students.find(stu);
 
-    for(UC uc: temp){
-        for(Turma turma : uc.getClasses()){
-            for(Student stu : turma.getStudents()){
-                if(ID == stu.getID()){
-                    for(Schedule sche : turma.getSchedule()){
-                        v.push_back(sche);
-                    }
-                }
+            if (studentIter != students.end()) {
+                vector<Schedule> schedules = turma.getSchedule();
+                v.insert(v.end(), schedules.begin(), schedules.end());
+                break;
             }
         }
     }
-    if(v.empty())
+    if(v.empty()) {
         cout << "Please enter a valid student id with 9 digits." << '\n';
+        log.push("View Student Shedule - FAILED!");
+        return v;
+    }
+
     v.sort();
+    log.push("View Student Shedule");
     return v;
 }
 list<Schedule> Menu::consultClassSchedule(string classcode){
@@ -133,9 +146,14 @@ list<Schedule> Menu::consultClassSchedule(string classcode){
             }
         }
     }
-    if(v.empty())
+    if(v.empty()){
         cout << "Please enter a valid class code in the format (XLEICXX)" << '\n';
+        log.push("View Class Schedule - FAILED!");
+        return v;
+    }
+
     v.sort();
+    log.push("View Class Schedule");
     return v;
 }
 list<Schedule> Menu::consultUCSchedule(string uccode) {
@@ -150,12 +168,16 @@ list<Schedule> Menu::consultUCSchedule(string uccode) {
             break;
         }
     }
-    if(v.empty())
+    if(v.empty()){
         cout << "Please enter a valid UC code in the format (L.EICXXX)" << '\n';
+        log.push("View UC Schedule - FAILED!");
+        return v;
+    }
     v.sort();
+    log.push("view UC Schedule");
     return v;
 }
-void Menu::listStudentsbyClass(std::string classcode1) {
+set<Student> Menu::listStudentsbyClass(std::string classcode1) {
    cout << '\n';
    vector<UC> temp = d.get_uc_vector();
    set<Student> s;
@@ -168,11 +190,9 @@ void Menu::listStudentsbyClass(std::string classcode1) {
            }
        }
    }
-   if(s.empty())
-       cout << "Please enter a valid class code in the format (XLEICXX)" << '\n';
-   for (auto stu : s)
-       cout << stu.getID() << ' ' << stu.getName() << '\n';
-   cout << "Number of students on class " << classcode1 << " = " << s.size() << '\n';
+   if(s.empty()) log.push("List Students by Class - FAILED!");
+   else log.push("List Students by Class");
+   return s;
 }
 void Menu::listStudentsbyYear(char number){
     cout << '\n';
@@ -186,48 +206,55 @@ void Menu::listStudentsbyYear(char number){
             }
         }
     }
-    if(s.empty()) cout << "Please enter a valid student year in the interval [1, 3]" << '\n';
+    if(s.empty()) {
+        cout << "Please enter a valid student year in the interval [1, 3]" << '\n';
+        log.push("List Students by Year - FAILED!");
+    }
     else {
+        log.push("List Students by Year");
         cout << "Students enrolled in the year " << number << " :\n";
         for (Student stu : s) {
             cout << stu.getID() << ' ' << stu.getName() << '\n';
         }
     }
-    cout << "Ocuupation of year " << number << " = " << s.size() << '\n';
+    cout << "Ocupation of year " << number << " = " << s.size() << '\n';
 }
 void Menu::listStudentsbyUC(string uce){
     cout << '\n';
     vector<UC> temp = d.get_uc_vector();
 
     for(UC uc : temp) {
-        if(uc.getcode() == uce){
-            for(Turma turma : uc.getClasses()){
+        if (uc.getcode() == uce) {
+            for (Turma turma: uc.getClasses()) {
                 list<Student> l;
                 cout << turma.getTurmaCode() << '\n';
                 for (auto stu: turma.getStudents())
                     l.push_back(stu);
                 l.sort();
-                if (l.empty()) cout << "Please enter a valid UC code in the format (L.EICXXX)" << '\n';
-                for(auto stu1: l){
-                    cout << stu1.getID() << ' ' << stu1.getName()  << '\n';
+                if (l.empty()) {
+                    log.push("List Students by UC - FAILED!");
+                    cout << "Please enter a valid UC code in the format (L.EICXXX)" << '\n';
+                } else {
+                    log.push("List Students by UC");
+                    for (auto stu1: l) {
+                        cout << stu1.getID() << ' ' << stu1.getName() << '\n';
+                    }
+                    cout << "Class size: " << l.size() << '\n' << '\n';
                 }
-                cout << "Class size: " << l.size() << '\n' << '\n';
 
             }
             break;
         }
     }
-
-
-
-
 }
 void Menu::listAllUCs() {
+    log.push("List All UCs");
     for(auto uc: d.get_uc_vector()){
         cout << uc.getcode() << '\n';
     }
 }
 void Menu::listAllStudents() {
+    log.push("List All Students");
     for (Student stu : d.get_all_students()) {
         cout << stu.getID() << ' ' << stu.getName() << '\n';
     }
@@ -276,6 +303,7 @@ bool Menu::addUC(int ID, string uc) {
     if (exists) {
        if(checkMaxUC(ID)){
            cout << "This student can not be added to more UCs"; //check if the student is register in more than 7 UCs
+           log.push("addUC - FAILED!");
            return false;
        }
        else { // This student can be added to more UCs
@@ -309,6 +337,7 @@ bool Menu::addUC(int ID, string uc) {
                     }
                     if(!caninsert){
                         cout<<"The student can't be added to the desired UC." << '\n';
+                        log.push("addUC - FAILED!");
                         return false;
                     }
                     else{
@@ -325,11 +354,13 @@ bool Menu::addUC(int ID, string uc) {
                 }
             }
             d.set_uc_vector(temp);
+            log.push("addUC");
             return true;
        }
     }
     else {
         cout << "Please enter a valid student id with 9 digits." << '\n';
+        log.push("addUC - FAILED!");
         return false;
     }
 }
@@ -393,9 +424,11 @@ string Menu::removeUC(int ID, string uc1){
             }
         }
         d.set_uc_vector(temp);
+        log.push("RemoveUC");
         cout << "The student was removed from the given UC." << '\n';
     }
     else {
+        log.push("RemoveUC - FAILED!");
         cout << "Please enter a valid student id with 9 digits." << '\n';
     }
     return classcode;
@@ -446,6 +479,7 @@ bool Menu::canaddUC(int id, string source_uc, string target_uc) {
                     }
                 }
                 if (!caninsert) {
+                    log.push("SwitchUCs - FAILED!");
                     return false;
                 }
                 else {
@@ -462,9 +496,11 @@ bool Menu::canaddUC(int id, string source_uc, string target_uc) {
             }
         }
         d.set_uc_vector(temp);
+        log.push("SwitchUCs");
         return true;
     }
     else {
+        log.push("SwitchUCs - FAILED!");
         cout << "Please enter a valid student id with 9 digits." << '\n';
         return false;
     }
@@ -541,6 +577,7 @@ bool Menu::canaddClass(int id, std::string target_class, std::string uc) {
                     }
                 }
                 if (!caninsert) {
+                    log.push("SwitchClasses - FAILED!");
                     cout << "It's not possible to switch the student to the given class." << endl;
                     return false;
                 }
@@ -559,8 +596,11 @@ bool Menu::canaddClass(int id, std::string target_class, std::string uc) {
             }
         }
         d.set_uc_vector(temp);
+        log.push("SwitchClasses");
         return true;
     }
+    log.push("SwitchClasses - FAILED!");
+    return false;
 }
 void Menu::removeClass(int id, string uc1, string classcode){
     vector<UC> temp = d.get_uc_vector();

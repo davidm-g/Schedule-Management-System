@@ -22,5 +22,5 @@ bool Student::operator< (const Student s1) const{
 }
 
 bool Student::operator== (const Student s1) const {
-    return this->id == s1.getID() && this->name == s1.getName();
+    return this->id == s1.getID();
 }
