@@ -10,18 +10,22 @@
 #include <algorithm>
 #include "Data.h"
 #include "Menu.h"
+#include "Action.h"
 #include <iomanip>
+#include <cmath>
 using namespace std;
 
 int main(){
     Menu m = Menu();
     int choice;
+    stack<string> lastchange;
     while (true) {
+
         std::cout << "-------------------------------------" << '\n';
         std::cout << "Welcome to Schedule Management System" << std::endl;
         std::cout << "1. View Class Schedule" << std::endl;
         std::cout << "2. View Student Schedule" << std::endl;
-        std::cout << "3. Consult UCs enrollment per student" << std::endl;
+        std::cout << "3. View UC Schedule" << std::endl;
         std::cout << "4. UC changes" << std::endl;
         std::cout << "5. Switch class" << std::endl;
         std::cout << "6. List the students within a certain Class" << std::endl;
@@ -31,7 +35,8 @@ int main(){
         std::cout << "10. List all UCs" << std::endl;
         std::cout << "11. List all Students" << std::endl;
         std::cout << "12. Exit" << std::endl;
-        std::cout << "Please enter your choice (1-12): ";
+        if (!lastchange.empty()) std::cout << "13. Undo last system change (" << lastchange.top() << ')' << std::endl;
+        std::cout << "Please enter your choice (1-13): ";
         std::cin >> choice;
         std::cout << "-------------------------------------" << '\n';
 
@@ -43,9 +48,16 @@ int main(){
                 cin >> clascode;
                 list<Schedule> v = m.consultClassSchedule(clascode);
                 for (Schedule s : v) {
+                    string sh, eh;
                     float endhour = s.get_starthour() + s.get_duration();
-                    cout << left << setw(9) << s.get_weekday() << " | " << setw(5) << s.get_starthour() <<
-                         "->" << setw(5) << endhour << " | " << setw(2) << s.get_type() << " | "
+                    if(s.get_starthour() < 10) sh = '0';
+                    if(endhour < 10) eh = '0';
+                    if (remainder(s.get_starthour(), 1) != 0) sh += to_string((int)s.get_starthour()) + ':' + "30";
+                    else sh += to_string((int)s.get_starthour()) + ':' + "00";
+                    if (remainder(endhour, 1) != 0) eh += to_string((int)endhour) + ':' + "30";
+                    else eh += to_string((int)endhour) + ':' + "00";
+                    cout << left << setw(9) << s.get_weekday() << " | " << setw(5) << sh <<
+                         "->" << setw(5) << eh << " | " << setw(2) << s.get_type() << " | "
                          << s.get_uccode() << '\n';
                 }
                 break;
@@ -57,15 +69,38 @@ int main(){
                 cin >> ID;
                 list<Schedule> v = m.consultStudentSchedule(ID);
                 for (Schedule s : v) {
+                    string sh, eh;
                     float endhour = s.get_starthour() + s.get_duration();
-                    cout << left << setw(9) << s.get_weekday() << " | " << setw(5) << s.get_starthour() <<
-                         "->" << setw(5) << endhour << " | " << setw(2) << s.get_type() << " | "
+                    if(s.get_starthour() < 10) sh = '0';
+                    if(endhour < 10) eh = '0';
+                    if (remainder(s.get_starthour(), 1) != 0) sh += to_string((int)s.get_starthour()) + ':' + "30";
+                    else sh += to_string((int)s.get_starthour()) + ':' + "00";
+                    if (remainder(endhour, 1) != 0) eh += to_string((int)endhour) + ':' + "30";
+                    else eh += to_string((int)endhour) + ':' + "00";
+                    cout << left << setw(9) << s.get_weekday() << " | " << setw(5) << sh <<
+                         "->" << setw(5) << eh << " | " << setw(2) << s.get_type() << " | "
                          << setw(8) << s.get_uccode() << " | " << s.get_classcode() << '\n';
                 }
                 break;
             }
             case 3: {
-                // Implement functionality for adding a student
+                string uccode;
+                cout << "Please enter the UC code: ";
+                cin >> uccode;
+                list<Schedule> v = m.consultUCSchedule(uccode);
+                for (Schedule s : v) {
+                    string sh, eh;
+                    float endhour = s.get_starthour() + s.get_duration();
+                    if(s.get_starthour() < 10) sh = '0';
+                    if(endhour < 10) eh = '0';
+                    if (remainder(s.get_starthour(), 1) != 0) sh += to_string((int)s.get_starthour()) + ':' + "30";
+                    else sh += to_string((int)s.get_starthour()) + ':' + "00";
+                    if (remainder(endhour, 1) != 0) eh += to_string((int)endhour) + ':' + "30";
+                    else eh += to_string((int)endhour) + ':' + "00";
+                    cout << left << setw(9) << s.get_weekday() << " | " << setw(5) << sh <<
+                         "->" << setw(5) << eh << " | " << setw(2) << s.get_type() << " | "
+                         << s.get_classcode() << '\n';
+                }
                 break;
             }
             case 4:
@@ -83,12 +118,16 @@ int main(){
                         cin >> id;
                         cout << "Please enter the uccode: ";
                         cin >> uc;
-                        m.addUC(id, uc);
-                        break;
+                        if(m.addUC(id, uc)){
+                            Action a = Action("addUC", id, uc);
+                            m.add_Action(a);
+                            lastchange.push("addUC");
+                            break;
+                        }
                     }
                     case 2: {
                         int id;
-                        string uc1, uc2;
+                        string uc1, uc2, classcode;
                         cout << "Please enter the id of the student: ";
                         cin >> id;
                         cout << "Please enter the uccode of the UC you want to remove: ";
@@ -96,7 +135,10 @@ int main(){
                         cout << "Please enter the uccode of the UC you want to add: ";
                         cin >> uc2;
                         if(m.canaddUC(id,uc1,uc2)){
-                            m.removeUC(id,uc1);
+                            classcode = m.removeUC(id,uc1);
+                            Action a = Action("switchUC", id, uc1, classcode, uc2);
+                            m.add_Action(a);
+                            lastchange.push("switchUC");
                         }
                         else{
                             cout << "The student can not change UCs\n";
@@ -105,12 +147,15 @@ int main(){
                     }
                     case 3: {
                         int id;
-                        string uc;
+                        string uc, classcode;
                         cout << "Please enter the id of the student: ";
                         cin >> id;
                         cout << "Please enter the uccode: ";
                         cin >> uc;
-                        m.removeUC(id, uc);
+                        classcode = m.removeUC(id, uc);
+                        Action a = Action("removeUC", id, uc, classcode);
+                        m.add_Action(a);
+                        lastchange.push("removeUC");
                         break;
                     }
                 }
@@ -129,6 +174,9 @@ int main(){
                 og_classcode = m.ConsultClassbyUC(id, uc);
                 if(m.canaddClass(id,target_class,uc)){
                     m.removeClass(id, uc, og_classcode);
+                    Action a = Action("switchClass", id, uc, og_classcode, target_class);
+                    m.add_Action(a);
+                    lastchange.push("switchClass");
                 }
                 break;
             }
@@ -169,12 +217,17 @@ int main(){
                 m.listAllStudents();
                 break;
             }
-            case 12: {
+            case 12:{
                 std::cout << "Goodbye!" << std::endl;
                 return 0;
             }
+            case 13: {
+                m.undo();
+                lastchange.pop();
+                break;
+            }
             default:
-                std::cout << "Invalid choice. Please enter a valid option (1-12)." << std::endl;
+                std::cout << "Invalid choice. Please enter a valid option (1-13)." << std::endl;
                 break;
         }
     }

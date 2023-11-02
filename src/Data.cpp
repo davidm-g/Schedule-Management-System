@@ -4,11 +4,23 @@
 
 #include "Data.h"
 
+
 Data::Data() {
     this->uc_vector = vector<UC>();
     this->allstudents = set<Student>();
+    this->record = stack<Action>();
 }
 
+void Data::addAction(Action a) {
+    record.push(a);
+}
+void Data::set_record(stack<Action> record){
+    this->record = record;
+}
+
+stack<Action> Data::get_record() {
+    return this->record;
+}
 vector<UC> Data::get_uc_vector() {
     return this->uc_vector;
 }

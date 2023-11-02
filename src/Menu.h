@@ -19,16 +19,20 @@ using namespace std;
 class Menu {
     public:
         Menu();
+        void add_Action(Action a);
+        void undo();
+        bool canBeAddedBack(int id, string uccode, string classcode);
         list<Schedule> consultStudentSchedule(int ID);
         list<Schedule> consultClassSchedule(string classcode);
+        list<Schedule> consultUCSchedule(string uccode);
         void listStudentsbyClass(string classcode1);
         void listStudentsbyYear(char number);
         void listAllUCs();
         void listAllStudents();
         void listStudentsbyUC(string uce);
         void maxUCs();
-        void addUC(int ID, string uc);
-        void removeUC(int ID, string uc1);
+        bool addUC(int ID, string uc);
+        string removeUC(int ID, string uc1);
         bool checkMaxUC (int id);
         bool compatibleSchedules (list<Schedule> current, vector<Schedule> novo);
         bool canaddUC (int id, string source_uc, string target_uc);

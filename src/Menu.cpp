@@ -4,7 +4,96 @@
 
 #include "Menu.h"
 
+void Menu::add_Action(Action a) {
+    this->d.addAction(a);
+}
+bool Menu::canBeAddedBack(int id, string uccode,string classcode){
+    vector<UC> temp = d.get_uc_vector();
+    string name;
+    for(auto stu: d.get_all_students()){
+        if(stu.getID() == id){
+            name = stu.getName();
+            break;
+        }
+    }
+    for(auto &uc1 : temp) {
+        if(uc1.getcode() == uccode) {
+            vector<Turma> compatible_classes;
+            vector<Turma> turmas = uc1.getClasses();
+            for (auto &turma1 : turmas){
+                bool flag = true;// ver se todas as turmas estão em equilíbrio
+                for (auto &turma2 : turmas) {
+                    if (turma1.getTurmaCode() != turma2.getTurmaCode()) {
+                        int n = turma1.getStudents().size() - turma2.getStudents().size();
+                        if(n >= 4){ //limit for class equilibrium
+                            flag = false;
+                            break;
+                        }
+                    }
+                }
+                if(flag) compatible_classes.push_back(turma1);
+            }
+            std::sort(compatible_classes.begin(), compatible_classes.end());
+            bool exist = false;
+            for(auto turma : compatible_classes){
+                if(turma.getTurmaCode() == classcode){
+                    exist = true;
+                    break;
+                }
+            }
+            if(exist){
+                for(auto &turma : turmas){
+                    if(turma.getTurmaCode() == classcode){
+                        Student stu = Student(id,name);
+                        turma.add_student(stu);
+                        break;
+                    }
+                }
+                uc1.setClasses(turmas);
+            }
+            else{
+                return false;
+            }
+        }
+    }
+    d.set_uc_vector(temp);
+    return true;
+}
+void Menu::undo() {
+    stack<Action> temp = d.get_record();
 
+    if(temp.top().getFunction() == "addUC") {
+        removeUC(temp.top().get_id(), temp.top().getUcode());
+        cout << "Action reverted succesfully." << '\n';
+        cout << "Student " << temp.top().get_id() << " removed from UC " << temp.top().getUcode() << '\n';
+    }
+    else if(temp.top().getFunction() == "removeUC") {
+        if(canBeAddedBack(temp.top().get_id(), temp.top().getUcode(), temp.top().getSource())){
+            cout << "Action reverted succesfully." << '\n';
+            cout << "Student " << temp.top().get_id() << " added back to class " << temp.top().getSource()
+                << " of UC " << temp.top().getUcode() << '\n';
+        }
+        else{
+            cout << "It was not possible to revert the last action due to class occupation requirements.";
+        }
+    }
+    else if(temp.top().getFunction() == "switchUC") {
+        if(canBeAddedBack(temp.top().get_id(), temp.top().getUcode(), temp.top().getSource())){
+            removeUC(temp.top().get_id(),temp.top().getTarget());
+            cout << "Action reverted succesfully." << '\n';
+            cout << "Student " << temp.top().get_id() << " switched back from UC " << temp.top().getTarget()
+                 << " to UC " << temp.top().getUcode() << '\n';
+        }
+        else{
+            cout << "It was not possible to revert the last action due to class occupation requirements.";
+        }
+    }
+    else if(temp.top().getFunction() == "switchClass") {
+
+    }
+    temp.pop();
+    d.set_record(temp);
+}
 list<Schedule> Menu::consultStudentSchedule(int ID){
     cout << '\n';
     std::vector<UC> temp = d.get_uc_vector();
@@ -41,8 +130,23 @@ list<Schedule> Menu::consultClassSchedule(string classcode){
         cout << "Please enter a valid class code in the format (XLEICXX)" << '\n';
     v.sort();
     return v;
-
-
+}
+list<Schedule> Menu::consultUCSchedule(string uccode) {
+    cout <<'\n';
+    vector<UC> temp = d.get_uc_vector();
+    list<Schedule> v;
+    for(UC uc : temp) {
+        if (uc.getcode() == uccode) {
+            for (Turma turma : uc.getClasses()) {
+                for (Schedule sche : turma.getSchedule()) v.push_back(sche);
+            }
+            break;
+        }
+    }
+    if(v.empty())
+        cout << "Please enter a valid UC code in the format (L.EICXXX)" << '\n';
+    v.sort();
+    return v;
 }
 void Menu::listStudentsbyClass(std::string classcode1) {
    cout << '\n';
@@ -84,7 +188,6 @@ void Menu::listStudentsbyYear(char number){
     }
     cout << "Ocuupation of year " << number << " = " << s.size() << '\n';
 }
-
 void Menu::listStudentsbyUC(string uce){
     cout << '\n';
     vector<UC> temp = d.get_uc_vector();
@@ -117,13 +220,11 @@ void Menu::listAllUCs() {
         cout << uc.getcode() << '\n';
     }
 }
-
 void Menu::listAllStudents() {
     for (Student stu : d.get_all_students()) {
         cout << stu.getID() << ' ' << stu.getName() << '\n';
     }
 }
-
 void Menu::maxUCs() {
     stack<UC> ucs;
     stack<int> max_occup;
@@ -153,7 +254,7 @@ void Menu::maxUCs() {
     }
     cout << "With " << temp << " students" << endl;
 }
-void Menu::addUC(int ID, string uc) {
+bool Menu::addUC(int ID, string uc) {
     list<Schedule> current = consultStudentSchedule(ID);
     string name;
     vector<UC> temp = d.get_uc_vector();
@@ -166,7 +267,10 @@ void Menu::addUC(int ID, string uc) {
         }
     }
     if (exists) {
-       if(checkMaxUC(ID)) cout << "This student can not be added to more UCs"; //chech if the student is register in more than 7 UCs
+       if(checkMaxUC(ID)){
+           cout << "This student can not be added to more UCs"; //check if the student is register in more than 7 UCs
+           return false;
+       }
        else { // This student can be added to more UCs
             for(auto &uc1 : temp) {
                 if(uc1.getcode() == uc) { // The UC we want to add the student to
@@ -198,6 +302,7 @@ void Menu::addUC(int ID, string uc) {
                     }
                     if(!caninsert){
                         cout<<"The student can't be added to the desired UC." << '\n';
+                        return false;
                     }
                     else{
                         for(auto &turma : turmas){
@@ -213,14 +318,14 @@ void Menu::addUC(int ID, string uc) {
                 }
             }
             d.set_uc_vector(temp);
+            return true;
        }
     }
     else {
         cout << "Please enter a valid student id with 9 digits." << '\n';
+        return false;
     }
 }
-
-
 bool Menu::checkMaxUC (int id) {
     int c = 0;
     for (auto uc : d.get_uc_vector()) {
@@ -236,7 +341,6 @@ bool Menu::checkMaxUC (int id) {
     if (c >= 7) return true;
     else return false;
 }
-
 bool Menu::compatibleSchedules(list<Schedule> current, vector<Schedule> novo) {
     for(auto sche: novo) {
         for(auto sche1 : current) {
@@ -251,9 +355,10 @@ bool Menu::compatibleSchedules(list<Schedule> current, vector<Schedule> novo) {
     }
     return true;
 }
-void Menu::removeUC(int ID, string uc1){
+string Menu::removeUC(int ID, string uc1){
     vector<UC> temp = d.get_uc_vector();
     bool exists = false;
+    string classcode;
     for(auto stu: d.get_all_students()){
         if(stu.getID() == ID){
             exists = true;
@@ -268,6 +373,7 @@ void Menu::removeUC(int ID, string uc1){
                     set<Student> students = turma.getStudents();
                     for(auto it = students.begin(); it != students.end(); it++){
                         if(it->getID() == ID) {
+                            classcode = turma.getTurmaCode();
                             auto it1 = students.erase(it);
                             break;
                         }
@@ -285,8 +391,8 @@ void Menu::removeUC(int ID, string uc1){
     else {
         cout << "Please enter a valid student id with 9 digits." << '\n';
     }
+    return classcode;
 }
-
 bool Menu::canaddUC(int id, string source_uc, string target_uc) {
     list<Schedule> current = consultStudentSchedule(id);
     for (auto it = current.begin(); it != current.end();it++) {
@@ -336,7 +442,6 @@ bool Menu::canaddUC(int id, string source_uc, string target_uc) {
                     return false;
                 }
                 else {
-                    //cout <<"The student was removed from "<< source_uc <<" and ";
                     for (auto &turma: turmas) {
                         if (classicode == turma.getTurmaCode()) {
                             Student stu = Student(id, name);
@@ -358,7 +463,6 @@ bool Menu::canaddUC(int id, string source_uc, string target_uc) {
     }
 
 }
-
 string Menu::ConsultClassbyUC(int id, string uc){
     vector<UC> temp = d.get_uc_vector();
     for(auto uc1: temp){
