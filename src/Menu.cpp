@@ -222,30 +222,29 @@ void Menu::listStudentsbyYear(char number){
 void Menu::listStudentsbyUC(string uce){
     cout << '\n';
     vector<UC> temp = d.get_uc_vector();
-
+    bool exists = false;
     for(UC uc : temp) {
         if (uc.getcode() == uce) {
+            exists = true;
             for (Turma turma: uc.getClasses()) {
                 list<Student> l;
                 cout << turma.getTurmaCode() << '\n';
                 for (auto stu: turma.getStudents())
                     l.push_back(stu);
                 l.sort();
-                if (l.empty()) {
-                    log.push("List Students by UC - FAILED!");
-                    cout << "Please enter a valid UC code in the format (L.EICXXX)" << '\n';
-                } else {
-                    log.push("List Students by UC");
-                    for (auto stu1: l) {
-                        cout << stu1.getID() << ' ' << stu1.getName() << '\n';
-                    }
-                    cout << "Class size: " << l.size() << '\n' << '\n';
+                for (auto stu1: l) {
+                    cout << stu1.getID() << ' ' << stu1.getName() << '\n';
                 }
-
+                cout << "Class size: " << l.size() << '\n' << '\n';
             }
             break;
         }
     }
+    if (!exists) {
+        cout << "Please enter a valid UC code in the format (L.EICXXX)" << '\n';
+        log.push("List Students by UC - FAILED!");
+    }
+    else log.push("List Students by UC");
 }
 void Menu::listAllUCs() {
     log.push("List All UCs");
@@ -255,9 +254,12 @@ void Menu::listAllUCs() {
 }
 void Menu::listAllStudents() {
     log.push("List All Students");
+    int count = 0;
     for (Student stu : d.get_all_students()) {
         cout << stu.getID() << ' ' << stu.getName() << '\n';
+        count++;
     }
+    cout << "Number of Students = " << count << '\n';
 }
 void Menu::maxUCs() {
     stack<UC> ucs;
@@ -519,6 +521,7 @@ string Menu::ConsultClassbyUC(int id, string uc){
             }
         }
     }
+    return "";
 }
 bool Menu::canaddClass(int id, std::string target_class, std::string uc) {
     vector<UC> temp = d.get_uc_vector();

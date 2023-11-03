@@ -28,7 +28,7 @@ int main(){
         std::cout << "4. UC changes" << std::endl;
         std::cout << "5. Switch class" << std::endl;
         std::cout << "6. List the students within a certain Class" << std::endl;
-        std::cout << "7. List all students by Year:" << std::endl;
+        std::cout << "7. List all students by Year" << std::endl;
         std::cout << "8. UCs with the greatest number of students" << std::endl;
         std::cout << "9. List all Students by UC" << std::endl;
         std::cout << "10. List all UCs" << std::endl;

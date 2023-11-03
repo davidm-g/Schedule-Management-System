@@ -8,18 +8,18 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug"/>
+				<Option working_dir="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Project1_code">
-				<Option output="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Project1_code" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug"/>
+				<Option output="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Project1_code" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -33,15 +33,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 Project1_code"/>
-					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 Project1_code"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Project1_code/fast">
-				<Option output="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Project1_code" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug"/>
+				<Option output="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Project1_code" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -55,73 +55,79 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 Project1_code/fast"/>
-					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 Project1_code/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug"/>
+				<Option working_dir="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug"/>
+				<Option working_dir="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Data.cpp">
+		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Action.cpp">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Data.h">
+		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Action.h">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Menu.cpp">
+		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Data.cpp">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Menu.h">
+		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Data.h">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Schedule.cpp">
+		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Menu.cpp">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Schedule.h">
+		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Menu.h">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Student.cpp">
+		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Schedule.cpp">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Student.h">
+		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Schedule.h">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Turma.cpp">
+		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Student.cpp">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/Turma.h">
+		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Student.h">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/UC.cpp">
+		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Turma.cpp">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/UC.h">
+		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Turma.h">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/teste.cpp">
+		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/UC.cpp">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/CMakeLists.txt">
+		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/UC.h">
+			<Option target="Project1_code"/>
+		</Unit>
+		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/main.cpp">
+			<Option target="Project1_code"/>
+		</Unit>
+		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

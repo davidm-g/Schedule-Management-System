@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/Project1_code.dir/main.cpp.o CMakeFiles/Project1_code.dir/Turma.cpp.o CMakeFiles/Project1_code.dir/UC.cpp.o CMakeFiles/Project1_code.dir/Student.cpp.o CMakeFiles/Project1_code.dir/Schedule.cpp.o CMakeFiles/Project1_code.dir/Menu.cpp.o CMakeFiles/Project1_code.dir/Data.cpp.o CMakeFiles/Project1_code.dir/Action.cpp.o -o Project1_code 

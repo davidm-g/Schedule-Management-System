@@ -57,10 +57,10 @@ RM = /opt/clion-2023.2.2/bin/cmake/linux/x64/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src
+CMAKE_SOURCE_DIR = /home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug
+CMAKE_BINARY_DIR = /home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/CMakeFiles /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/CMakeFiles /home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/davidmg/Documents/school/2ND_YEAR/Project_AED/AED_project1/src/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -128,6 +128,30 @@ Project1_code: cmake_check_build_system
 Project1_code/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/build
 .PHONY : Project1_code/fast
+
+Action.o: Action.cpp.o
+.PHONY : Action.o
+
+# target to build an object file
+Action.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/Action.cpp.o
+.PHONY : Action.cpp.o
+
+Action.i: Action.cpp.i
+.PHONY : Action.i
+
+# target to preprocess a source file
+Action.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/Action.cpp.i
+.PHONY : Action.cpp.i
+
+Action.s: Action.cpp.s
+.PHONY : Action.s
+
+# target to generate assembly for a file
+Action.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/Action.cpp.s
+.PHONY : Action.cpp.s
 
 Data.o: Data.cpp.o
 .PHONY : Data.o
@@ -273,29 +297,29 @@ UC.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/UC.cpp.s
 .PHONY : UC.cpp.s
 
-teste.o: teste.cpp.o
-.PHONY : teste.o
+main.o: main.cpp.o
+.PHONY : main.o
 
 # target to build an object file
-teste.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/teste.cpp.o
-.PHONY : teste.cpp.o
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-teste.i: teste.cpp.i
-.PHONY : teste.i
+main.i: main.cpp.i
+.PHONY : main.i
 
 # target to preprocess a source file
-teste.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/teste.cpp.i
-.PHONY : teste.cpp.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-teste.s: teste.cpp.s
-.PHONY : teste.s
+main.s: main.cpp.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-teste.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/teste.cpp.s
-.PHONY : teste.cpp.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project1_code.dir/build.make CMakeFiles/Project1_code.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -306,6 +330,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Project1_code"
+	@echo "... Action.o"
+	@echo "... Action.i"
+	@echo "... Action.s"
 	@echo "... Data.o"
 	@echo "... Data.i"
 	@echo "... Data.s"
@@ -324,9 +351,9 @@ help:
 	@echo "... UC.o"
 	@echo "... UC.i"
 	@echo "... UC.s"
-	@echo "... teste.o"
-	@echo "... teste.i"
-	@echo "... teste.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 
