@@ -1,8 +1,0 @@
-# ninja log v5
-521	876	7198734649787778	Project1_code.exe	6b95bc79cbaef3d4
-1	134	7186504617868602	CMakeFiles/Project1_code.dir/test.cpp.obj	1f62b098bdf10c8c
-35	698	7198691796544887	CMakeFiles/Project1_code.dir/Class.cpp.obj	e097275d8ed5f6e5
-2	520	7198734646255052	CMakeFiles/Project1_code.dir/teste.cpp.obj	1e7a80bd74cce608
-75	846	7198691798005782	CMakeFiles/Project1_code.dir/UC.cpp.obj	f3d37a2c4ae20663
-1	682	7199455787291256	build.ninja	e3c436f21d14c43e
-6	1158	7198709901175173	CMakeFiles/Project1_code.dir/Parse_files.cpp.obj	3a10d8678fe74db8

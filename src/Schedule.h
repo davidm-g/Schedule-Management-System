@@ -3,7 +3,11 @@
 #include <string>
 #include <iostream>
 #include <map>
-
+/**
+ * @class Schedule
+ * @brief Describes the day, type, and duration of a specific lesson, as well as the
+ * corresponding Course Unit (UC) and class it is associated with.
+ */
 using namespace std;
 class Schedule {
 private:

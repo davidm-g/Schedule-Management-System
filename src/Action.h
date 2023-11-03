@@ -15,7 +15,11 @@
 #include <iomanip>
 #include <queue>
 using namespace std;
-
+/**
+ * @class Action
+ * @brief Represents an undoable action (insertion,deletion, and switching of students from UCs and Classes)
+ * made from the menu and retrieves its arguments.
+ */
 class Action {
 private:
     string function;

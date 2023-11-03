@@ -4,7 +4,11 @@
 #include <vector>
 #include <set>
 #include "Turma.h"
-
+/**
+ * @class UC
+ * @brief "Represents a specific Course Unit identified by its code (UC code) and provides
+ * comprehensive information about all the classes associated with this unit."
+ */
 class UC {
 private:
     std::string UC_code;

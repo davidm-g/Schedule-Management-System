@@ -7,7 +7,10 @@
 #include "Schedule.h"
 #include <map>
 
-
+/**
+ * @class Student
+ * @brief Portrays a student, identifying him by ID and name.
+ */
 class Student {
 private:
     int id;
@@ -16,9 +19,6 @@ public:
     Student(int id, std::string name = "");
     int getID() const;
     std::string getName() const;
-    std::map<pair<string, string>, Schedule> getSchedule() const;
-    void addSchedule(Schedule sec,string uccode,string classcode);
-    void setSchedule(std::map<pair<string, string>, Schedule> s);
     bool operator< (const Student s1) const;
     bool operator== (const Student s1) const;
 };

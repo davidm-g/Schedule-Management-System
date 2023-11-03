@@ -9,9 +9,12 @@
 #include <list>
 #include <set>
 
-// Conceptually, a class is identified by the code of the UC, weekday, start time, duration, and type (T/TP/PL).
-// A schedule is composed by several classes. A student is identified by a name, and has an associated
-// schedule. A class is identified by a code and has a given schedule.
+/**
+ * @class Turma
+ * @brief
+ * Categorizes a class using its unique identifier (class code) and provides
+ * details about its schedule as well as a set of enrolled students.
+ */
 class Turma {
 private:
     std::set<Student> students;

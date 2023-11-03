@@ -16,7 +16,13 @@
 #include <queue>
 #include <queue>
 using namespace std;
-
+/**
+ * @class Menu
+ * @brief Represents the user-friendly interface for the schedule management system.
+ * It shows available functionalities and their corresponding outputs in a clear, organized,
+ * and logical manner, facilitating seamless program utilization and straightforward result
+ * interpretation.
+ */
 class Menu {
     public:
         Menu();
@@ -30,7 +36,7 @@ class Menu {
         void listStudentsbyYear(char number);
         void listAllUCs();
         void listAllStudents();
-        void listStudentsbyUC(string uce);
+        void listStudentsbyUC(string uc);
         void maxUCs();
         bool addUC(int ID, string uc);
         string removeUC(int ID, string uc1);

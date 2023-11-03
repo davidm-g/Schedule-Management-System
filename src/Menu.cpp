@@ -4,12 +4,32 @@
 
 #include "Menu.h"
 
+
+
+
+/**
+ * Gets the log of the instructions in the current running session.
+ * @return the queue of strings, which one representing a function ran
+ */
 queue<string> Menu::getLog() {
     return this->log;
 }
+/**
+ * Adds a revertable action to the record stack.
+ * @param a
+ */
 void Menu::add_Action(Action a) {
     this->d.addAction(a);
 }
+/**
+ * Checks if a student with given id can be added back
+ * to a class with given classcode from a specific
+ * curricular unit with given uccode.
+ * @param id
+ * @param uccode
+ * @param classcode
+ * @return true if it can be added back, false otherwise
+ */
 bool Menu::canBeAddedBack(int id, string uccode,string classcode){
     vector<UC> temp = d.get_uc_vector();
     string name;
@@ -62,6 +82,10 @@ bool Menu::canBeAddedBack(int id, string uccode,string classcode){
     d.set_uc_vector(temp);
     return true;
 }
+/**
+ * This function gets the last function executed from stack record,
+ * tries to execute its inverse and removes it from the stack.
+ */
 void Menu::undo() {
     stack<Action> temp = d.get_record();
 
@@ -104,6 +128,12 @@ void Menu::undo() {
     temp.pop();
     d.set_record(temp);
 }
+/**
+ * Retrieves the schedule of a given student.
+ * It also pushes this instruction to the log queue.
+ * @param ID
+ * @return a list of the schedules for the entire students week.
+ */
 list<Schedule> Menu::consultStudentSchedule(int ID){
     cout << '\n';
     std::vector<UC> temp = d.get_uc_vector();
@@ -135,6 +165,12 @@ list<Schedule> Menu::consultStudentSchedule(int ID){
     log.push("View Student Shedule");
     return v;
 }
+/**
+ * Retrieves the schedule of a given class.
+ * It also pushes this instruction to the log queue.
+ * @param classcode
+ * @return a list of the schedules for the entire classes week.
+ */
 list<Schedule> Menu::consultClassSchedule(string classcode){
     cout << '\n';
     std::vector<UC> temp = d.get_uc_vector();
@@ -156,6 +192,12 @@ list<Schedule> Menu::consultClassSchedule(string classcode){
     log.push("View Class Schedule");
     return v;
 }
+/**
+ * Retrieves the schedule of a given UC.
+ * It also pushes this instruction to the log queue.
+ * @param uccode
+ * @return a list of the schedules for the entire UCs week.
+ */
 list<Schedule> Menu::consultUCSchedule(string uccode) {
     cout <<'\n';
     vector<UC> temp = d.get_uc_vector();
@@ -177,6 +219,11 @@ list<Schedule> Menu::consultUCSchedule(string uccode) {
     log.push("view UC Schedule");
     return v;
 }
+/**
+ * Method to make a set for all the students enrolled in a certain class identified by its classcode.
+ * @param classcode for the specific class whose enrolled students we want to inquire about.
+ * @return set of students enrolled in the class.
+ */
 set<Student> Menu::listStudentsbyClass(std::string classcode1) {
    cout << '\n';
    vector<UC> temp = d.get_uc_vector();
@@ -194,6 +241,11 @@ set<Student> Menu::listStudentsbyClass(std::string classcode1) {
    else log.push("List Students by Class");
    return s;
 }
+/**
+ * Method to print all the students enrolled in a certain Year identified by its number.
+ * @param number that represents the specific year whose enrolled students we want to inquire about.
+ *
+ */
 void Menu::listStudentsbyYear(char number){
     cout << '\n';
     set<Student> s;
@@ -219,14 +271,18 @@ void Menu::listStudentsbyYear(char number){
     }
     cout << "Ocupation of year " << number << " = " << s.size() << '\n';
 }
-void Menu::listStudentsbyUC(string uce){
+/**
+ * Method to print all the students enrolled in a certain UC identified by its uccode.
+ * @param uccode of the given uc.
+ */
+void Menu::listStudentsbyUC(string uc){
     cout << '\n';
     vector<UC> temp = d.get_uc_vector();
     bool exists = false;
-    for(UC uc : temp) {
-        if (uc.getcode() == uce) {
+    for(UC uce : temp) {
+        if (uce.getcode() == uc) {
             exists = true;
-            for (Turma turma: uc.getClasses()) {
+            for (Turma turma: uce.getClasses()) {
                 list<Student> l;
                 cout << turma.getTurmaCode() << '\n';
                 for (auto stu: turma.getStudents())
@@ -246,12 +302,19 @@ void Menu::listStudentsbyUC(string uce){
     }
     else log.push("List Students by UC");
 }
+/**
+ * Prints every UC available for the students.
+ */
 void Menu::listAllUCs() {
     log.push("List All UCs");
     for(auto uc: d.get_uc_vector()){
         cout << uc.getcode() << '\n';
     }
 }
+/**
+ * Prints every student id and name.
+ * Ends with the amount of existing unique students.
+ */
 void Menu::listAllStudents() {
     log.push("List All Students");
     int count = 0;
@@ -261,6 +324,10 @@ void Menu::listAllStudents() {
     }
     cout << "Number of Students = " << count << '\n';
 }
+/**
+ * Prints the UC(s) with more occupation by making use of two stacks,
+ * one with all the ucs, and another with only the max occupation number.
+ */
 void Menu::maxUCs() {
     stack<UC> ucs;
     stack<int> max_occup;
@@ -290,6 +357,12 @@ void Menu::maxUCs() {
     }
     cout << "With " << temp << " students" << endl;
 }
+/**
+ * Checks the possibility to add a student to another UC.
+ * @param ID
+ * @param uc
+ * @return true if the student can be added to given UC, false otherwise.
+ */
 bool Menu::addUC(int ID, string uc) {
     list<Schedule> current = consultStudentSchedule(ID);
     string name;
@@ -366,6 +439,11 @@ bool Menu::addUC(int ID, string uc) {
         return false;
     }
 }
+/**
+ * Infers if a given student has reached its UC limit(7).
+ * @param id
+ * @return true if it has reached the limit, false otherwise.
+ */
 bool Menu::checkMaxUC (int id) {
     int c = 0;
     for (auto uc : d.get_uc_vector()) {
@@ -381,6 +459,13 @@ bool Menu::checkMaxUC (int id) {
     if (c >= 7) return true;
     else return false;
 }
+/**
+ * Compares two schedules to determine compatibility, ensuring that
+ * no classes overlap except in the case of both being theoretical classes.
+ * @param current the schedule in which we want to insert more classes(another schedule).
+ * @param novo the schedule we want to add to an already existing one.
+ * @return true if both schedules are compatible, false otherwise.
+ */
 bool Menu::compatibleSchedules(list<Schedule> current, vector<Schedule> novo) {
     for(auto sche: novo) {
         for(auto sche1 : current) {
@@ -395,6 +480,13 @@ bool Menu::compatibleSchedules(list<Schedule> current, vector<Schedule> novo) {
     }
     return true;
 }
+/**
+ * Removes the given student from the provided UC.
+ * Prints a confirmation message at the end.
+ * @param ID
+ * @param uc1
+ * @return the classcode of the class which the student was removed from.
+ */
 string Menu::removeUC(int ID, string uc1){
     vector<UC> temp = d.get_uc_vector();
     bool exists = false;
@@ -435,6 +527,15 @@ string Menu::removeUC(int ID, string uc1){
     }
     return classcode;
 }
+/**
+ * Verifies if a student can be added to a target UC,
+ * taking into consideration that he will be removed
+ * from the source UC. If possible the adding is done.
+ * @param id
+ * @param source_uc
+ * @param target_uc
+ * @return true if the operation is possible, false otherwise.
+ */
 bool Menu::canaddUC(int id, string source_uc, string target_uc) {
     list<Schedule> current = consultStudentSchedule(id);
     for (auto it = current.begin(); it != current.end();it++) {
@@ -508,6 +609,13 @@ bool Menu::canaddUC(int id, string source_uc, string target_uc) {
     }
 
 }
+/**
+ *  Checks if a given student, identified by its id,
+ *  is enrolled in a certain UC, identified by its uc_code.
+ * @param id of the student.
+ * @param uc code of the given UC.
+ * @return the classcode of the class the student is in, or an empty string if the student isn't enrolled in the UC.
+ */
 string Menu::ConsultClassbyUC(int id, string uc){
     vector<UC> temp = d.get_uc_vector();
     for(auto uc1: temp){
@@ -523,6 +631,16 @@ string Menu::ConsultClassbyUC(int id, string uc){
     }
     return "";
 }
+/**
+ * Verifies if a student can be added to a target class,
+ * of a given UC, taking into consideration that he will
+ * be removed from the original class. If possible the
+ * adding is done.
+ * @param id
+ * @param target_class
+ * @param uc
+ * @return true if the operation is possible, false otherwise.
+ */
 bool Menu::canaddClass(int id, std::string target_class, std::string uc) {
     vector<UC> temp = d.get_uc_vector();
     list<Schedule> current = consultStudentSchedule(id);
@@ -605,6 +723,12 @@ bool Menu::canaddClass(int id, std::string target_class, std::string uc) {
     log.push("SwitchClasses - FAILED!");
     return false;
 }
+/**
+ * Removes the given student from the provided class, from the given UC.
+ * @param id of the student.
+ * @param uc1 identifier of the UC.
+ * @param classcode of the class.
+ */
 void Menu::removeClass(int id, string uc1, string classcode){
     vector<UC> temp = d.get_uc_vector();
     for(auto &uc : temp){

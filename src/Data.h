@@ -13,7 +13,10 @@
 #include "Action.h"
 #include <algorithm>
 
-
+/**
+ * @class Data
+ * @brief Represents the data that was parsed from the csv files.
+ */
 class Data {
     private:
         vector<UC> uc_vector;
