@@ -85,8 +85,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac36802361064dbec3272ccbad183ea2f" id="r_ac36802361064dbec3272ccbad183ea2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac36802361064dbec3272ccbad183ea2f">add_Action</a> (<a class="el" href="classAction.html">Action</a> a)</td></tr>
-<tr class="separator:ac36802361064dbec3272ccbad183ea2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34b1d981f54781333935278e78982ed3" id="r_a34b1d981f54781333935278e78982ed3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34b1d981f54781333935278e78982ed3">add_Action</a> (<a class="el" href="classAction.html">Action</a> action)</td></tr>
+<tr class="separator:a34b1d981f54781333935278e78982ed3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a995e87de3b1295d53a183eb6351ff02e" id="r_a995e87de3b1295d53a183eb6351ff02e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a995e87de3b1295d53a183eb6351ff02e">undo</a> ()</td></tr>
 <tr class="separator:a995e87de3b1295d53a183eb6351ff02e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b4ff56bb39cdc66608d0e29d712d4b0" id="r_a9b4ff56bb39cdc66608d0e29d712d4b0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b4ff56bb39cdc66608d0e29d712d4b0">canBeAddedBack</a> (int id, string uccode, string classcode)</td></tr>
@@ -131,8 +131,8 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents the user-friendly interface for the schedule management system. It shows available functionalities and their corresponding outputs in a clear, organized, and logical manner, facilitating seamless program utilization and straightforward result interpretation. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac36802361064dbec3272ccbad183ea2f" name="ac36802361064dbec3272ccbad183ea2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac36802361064dbec3272ccbad183ea2f">&#9670;&#160;</a></span>add_Action()</h2>
+<a id="a34b1d981f54781333935278e78982ed3" name="a34b1d981f54781333935278e78982ed3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34b1d981f54781333935278e78982ed3">&#9670;&#160;</a></span>add_Action()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -141,14 +141,14 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void Menu::add_Action </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classAction.html">Action</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
+          <td class="paramname"><em>action</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Adds a revertable action to the record stack. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td></td></tr>
+    <tr><td class="paramname">action</td><td>to add @complexity O(1) </td></tr>
   </table>
   </dd>
 </dl>
@@ -182,8 +182,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Checks the possibility to add a student to another <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC</a>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ID</td><td></td></tr>
-    <tr><td class="paramname">uc</td><td></td></tr>
+    <tr><td class="paramname">ID</td><td>of the student </td></tr>
+    <tr><td class="paramname">uccode</td><td>of the <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC</a>. @complexity O(N³) </td></tr>
   </table>
   </dd>
 </dl>
@@ -224,9 +224,9 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Verifies if a student can be added to a target class, of a given <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC</a>, taking into consideration that he will be removed from the original class. If possible the adding is done. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td></td></tr>
-    <tr><td class="paramname">target_class</td><td></td></tr>
-    <tr><td class="paramname">uc</td><td></td></tr>
+    <tr><td class="paramname">id</td><td>of the student. </td></tr>
+    <tr><td class="paramname">target_class</td><td>the class we want to add the student into. </td></tr>
+    <tr><td class="paramname">uccode</td><td>of the given <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC</a>. @complexity O(N³) </td></tr>
   </table>
   </dd>
 </dl>
@@ -267,9 +267,9 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Verifies if a student can be added to a target <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC</a>, taking into consideration that he will be removed from the source <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC</a>. If possible the adding is done. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td></td></tr>
-    <tr><td class="paramname">source_uc</td><td></td></tr>
-    <tr><td class="paramname">target_uc</td><td></td></tr>
+    <tr><td class="paramname">id</td><td>of the student. </td></tr>
+    <tr><td class="paramname">source_uc</td><td>the <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC</a> we want to switch from. </td></tr>
+    <tr><td class="paramname">target_uc</td><td>the <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC</a> we want to switch into. @complexity O(N³) </td></tr>
   </table>
   </dd>
 </dl>
@@ -310,9 +310,9 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Checks if a student with given id can be added back to a class with given classcode from a specific curricular unit with given uccode. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td></td></tr>
-    <tr><td class="paramname">uccode</td><td></td></tr>
-    <tr><td class="paramname">classcode</td><td></td></tr>
+    <tr><td class="paramname">id</td><td>of the given student. </td></tr>
+    <tr><td class="paramname">uccode</td><td>of the given <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC</a>. </td></tr>
+    <tr><td class="paramname">classcode</td><td>of the class @complexity O(n^3) </td></tr>
   </table>
   </dd>
 </dl>
@@ -337,7 +337,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Infers if a given student has reached its <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC</a> limit(7). </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td></td></tr>
+    <tr><td class="paramname">id</td><td>of the student. @complexity O(N³) </td></tr>
   </table>
   </dd>
 </dl>
@@ -373,7 +373,7 @@ Public Member Functions</h2></td></tr>
 <p>Compares two schedules to determine compatibility, ensuring that no classes overlap except in the case of both being theoretical classes. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">current</td><td>the schedule in which we want to insert more classes(another schedule). </td></tr>
-    <tr><td class="paramname">novo</td><td>the schedule we want to add to an already existing one. </td></tr>
+    <tr><td class="paramname">novo</td><td>the schedule we want to add to an already existing one. @complexity O(N²) </td></tr>
   </table>
   </dd>
 </dl>
@@ -409,7 +409,7 @@ Public Member Functions</h2></td></tr>
 <p>Checks if a given student, identified by its id, is enrolled in a certain <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC</a>, identified by its uc_code. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>of the student. </td></tr>
-    <tr><td class="paramname">uc</td><td>code of the given <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC</a>. </td></tr>
+    <tr><td class="paramname">uc</td><td>code of the given <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC</a>. @complexity O(N³) </td></tr>
   </table>
   </dd>
 </dl>
@@ -434,7 +434,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Retrieves the schedule of a given class. It also pushes this instruction to the log queue. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">classcode</td><td></td></tr>
+    <tr><td class="paramname">classcode</td><td>of the class to consult @complexity O(N³) </td></tr>
   </table>
   </dd>
 </dl>
@@ -459,7 +459,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Retrieves the schedule of a given student. It also pushes this instruction to the log queue. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ID</td><td></td></tr>
+    <tr><td class="paramname">ID</td><td>of the student @complexity O(N²) </td></tr>
   </table>
   </dd>
 </dl>
@@ -484,7 +484,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Retrieves the schedule of a given <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC</a>. It also pushes this instruction to the log queue. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">uccode</td><td></td></tr>
+    <tr><td class="paramname">uccode</td><td>of the given <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC</a> to consult @complexity O(N³) </td></tr>
   </table>
   </dd>
 </dl>
@@ -506,7 +506,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gets the log of the instructions in the current running session. </p><dl class="section return"><dt>Returns</dt><dd>the queue of strings, which one representing a function ran </dd></dl>
+<p>Gets the log of the instructions in the current running session. @complexity O(1) </p><dl class="section return"><dt>Returns</dt><dd>the queue of strings, each one representing a function ran </dd></dl>
 
 </div>
 </div>
@@ -524,7 +524,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Prints every student id and name. Ends with the amount of existing unique students. </p>
+<p>Prints every student id and name. Ends with the amount of existing unique students. @complexity O(N) </p>
 
 </div>
 </div>
@@ -542,7 +542,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Prints every <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC</a> available for the students. </p>
+<p>Prints every <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC</a> available for the students. @complexity O(N) </p>
 
 </div>
 </div>
@@ -563,7 +563,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Method to make a set for all the students enrolled in a certain class identified by its classcode. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">classcode</td><td>for the specific class whose enrolled students we want to inquire about. </td></tr>
+    <tr><td class="paramname">classcode</td><td>for the specific class whose enrolled students we want to inquire about. @complexity O(N³) </td></tr>
   </table>
   </dd>
 </dl>
@@ -588,7 +588,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Method to print all the students enrolled in a certain <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC</a> identified by its uccode. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">uccode</td><td>of the given uc. </td></tr>
+    <tr><td class="paramname">uccode</td><td>of the given uc. @complexity O(N³) </td></tr>
   </table>
   </dd>
 </dl>
@@ -612,7 +612,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Method to print all the students enrolled in a certain Year identified by its number. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">number</td><td>that represents the specific year whose enrolled students we want to inquire about. </td></tr>
+    <tr><td class="paramname">number</td><td>that represents the specific year whose enrolled students we want to inquire about. @complexity (N³) </td></tr>
   </table>
   </dd>
 </dl>
@@ -633,7 +633,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Prints the <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC(s)</a> with more occupation by making use of two stacks, one with all the ucs, and another with only the max occupation number. </p>
+<p>Prints the <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC(s)</a> with more occupation by making use of two stacks, one with all the ucs, and another with only the max occupation number. @complexity O(N²) </p>
 
 </div>
 </div>
@@ -672,7 +672,7 @@ Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">id</td><td>of the student. </td></tr>
     <tr><td class="paramname">uc1</td><td>identifier of the <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC</a>. </td></tr>
-    <tr><td class="paramname">classcode</td><td>of the class. </td></tr>
+    <tr><td class="paramname">classcode</td><td>of the class. @complexity O(N³) </td></tr>
   </table>
   </dd>
 </dl>
@@ -706,8 +706,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Removes the given student from the provided <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC</a>. Prints a confirmation message at the end. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ID</td><td></td></tr>
-    <tr><td class="paramname">uc1</td><td></td></tr>
+    <tr><td class="paramname">ID</td><td>of the student. </td></tr>
+    <tr><td class="paramname">uccode</td><td>of the <a class="el" href="classUC.html" title="&quot;Represents a specific Course Unit identified by its code (UC code) and provides comprehensive inform...">UC</a>. @complexity O(N³) </td></tr>
   </table>
   </dd>
 </dl>

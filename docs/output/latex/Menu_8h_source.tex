@@ -1,0 +1,55 @@
+\doxysection{Menu.\+h}
+\hypertarget{Menu_8h_source}{}\label{Menu_8h_source}\index{/home/davidmg/Documents/school/2ND\_YEAR/ProjectAED/AED\_project1/src/Menu.h@{/home/davidmg/Documents/school/2ND\_YEAR/ProjectAED/AED\_project1/src/Menu.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ PROJECT1\_CODE\_MENU\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ PROJECT1\_CODE\_MENU\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Student.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Turma.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}Schedule.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}UC.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}Data.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <stack>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00018\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMenu}{Menu}}\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMenu}{Menu}}();}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_a34b1d981f54781333935278e78982ed3}{add\_Action}}(\mbox{\hyperlink{classAction}{Action}}\ action);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_a995e87de3b1295d53a183eb6351ff02e}{undo}}();}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMenu_a9b4ff56bb39cdc66608d0e29d712d4b0}{canBeAddedBack}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{string}\ uccode,\ \textcolor{keywordtype}{string}\ classcode);}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ list<Schedule>\ \mbox{\hyperlink{classMenu_a03092d415bbe2900286d3768c860beaf}{consultStudentSchedule}}(\textcolor{keywordtype}{int}\ ID);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ list<Schedule>\ \mbox{\hyperlink{classMenu_a68c8c3140eca72946e41da505db4f44a}{consultClassSchedule}}(\textcolor{keywordtype}{string}\ classcode);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ list<Schedule>\ \mbox{\hyperlink{classMenu_a688049ba84ba4e09c1af6431203faf0a}{consultUCSchedule}}(\textcolor{keywordtype}{string}\ uccode);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ set<Student>\ \mbox{\hyperlink{classMenu_aac1050f447bf8826f6875338217b2f40}{listStudentsbyClass}}(\textcolor{keywordtype}{string}\ classcode1);}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_ae77fb759d5d185ff2fbf9258853f7b37}{listStudentsbyYear}}(\textcolor{keywordtype}{char}\ number);}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_aeb2ec723e59992ec193fc1070ad273e3}{listAllUCs}}();}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_a00bf11d62166ac487939711c719304fd}{listAllStudents}}();}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_ac0d8007526fe4dacd9bd961a6e8b9287}{listStudentsbyUC}}(\textcolor{keywordtype}{string}\ uc);}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_ad79a67b3e0f2637ccaef5b94cd548271}{maxUCs}}();}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMenu_aea3673c065c51e89389ba6e823c8c99c}{addUC}}(\textcolor{keywordtype}{int}\ ID,\ \textcolor{keywordtype}{string}\ uc);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classMenu_adda53d0e7e5869a7403f13cc528851e2}{removeUC}}(\textcolor{keywordtype}{int}\ ID,\ \textcolor{keywordtype}{string}\ uc1);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMenu_a65fff98cbee8ebdd8d49cf59ce9ff91c}{checkMaxUC}}\ (\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMenu_a62f44d51fb7e93fc45d853d31bc1edee}{compatibleSchedules}}\ (list<Schedule>\ current,\ vector<Schedule>\ novo);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMenu_af0e9a827554c07e8c3c1a32b1768a1fe}{canaddUC}}\ (\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{string}\ source\_uc,\ \textcolor{keywordtype}{string}\ target\_uc);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classMenu_a3965f724f2a20b7f09f7a410b00e6baa}{ConsultClassbyUC}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{string}\ uc);}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMenu_a857d73d7f30d7aae09aaf235badfbfaf}{canaddClass}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{string}\ target\_class,\ \textcolor{keywordtype}{string}\ uc);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_a6f07efaa616147d8484fdfaa9e7a2090}{removeClass}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{string}\ uc,\ \textcolor{keywordtype}{string}\ classcode);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ queue<string>\ \mbox{\hyperlink{classMenu_a474d2a320ae9a95c377ff19e94c37dbe}{getLog}}();}
+\DoxyCodeLine{00050\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classData}{Data}}\ d;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ queue<string>\ log;}
+\DoxyCodeLine{00053\ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PROJECT1\_CODE\_MENU\_H}}
+
+\end{DoxyCode}

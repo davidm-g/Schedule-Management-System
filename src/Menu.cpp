@@ -8,26 +8,26 @@
 
 
 /**
- * Gets the log of the instructions in the current running session.
- * @return the queue of strings, which one representing a function ran
+ * Gets the log of the instructions in the current running session. - complexity O(1)
+ * @return the queue of strings, each one representing a function ran
  */
 queue<string> Menu::getLog() {
     return this->log;
 }
 /**
- * Adds a revertable action to the record stack.
- * @param a
+ * Adds a revertable action to the record stack. - complexity O(1)
+ * @param action to add
  */
-void Menu::add_Action(Action a) {
-    this->d.addAction(a);
+void Menu::add_Action(Action action) {
+    this->d.addAction(action);
 }
 /**
  * Checks if a student with given id can be added back
  * to a class with given classcode from a specific
- * curricular unit with given uccode.
- * @param id
- * @param uccode
- * @param classcode
+ * curricular unit with given uccode. - complexity O(N³)
+ * @param id of the given student.
+ * @param uccode of the given UC.
+ * @param classcode of the class
  * @return true if it can be added back, false otherwise
  */
 bool Menu::canBeAddedBack(int id, string uccode,string classcode){
@@ -130,8 +130,8 @@ void Menu::undo() {
 }
 /**
  * Retrieves the schedule of a given student.
- * It also pushes this instruction to the log queue.
- * @param ID
+ * It also pushes this instruction to the log queue. - complexity O(N²)
+ * @param ID of the student
  * @return a list of the schedules for the entire students week.
  */
 list<Schedule> Menu::consultStudentSchedule(int ID){
@@ -167,8 +167,8 @@ list<Schedule> Menu::consultStudentSchedule(int ID){
 }
 /**
  * Retrieves the schedule of a given class.
- * It also pushes this instruction to the log queue.
- * @param classcode
+ * It also pushes this instruction to the log queue. - complexity O(N³)
+ * @param classcode of the class to consult
  * @return a list of the schedules for the entire classes week.
  */
 list<Schedule> Menu::consultClassSchedule(string classcode){
@@ -194,8 +194,8 @@ list<Schedule> Menu::consultClassSchedule(string classcode){
 }
 /**
  * Retrieves the schedule of a given UC.
- * It also pushes this instruction to the log queue.
- * @param uccode
+ * It also pushes this instruction to the log queue. - complexity O(N³)
+ * @param uccode of the given UC to consult
  * @return a list of the schedules for the entire UCs week.
  */
 list<Schedule> Menu::consultUCSchedule(string uccode) {
@@ -220,7 +220,7 @@ list<Schedule> Menu::consultUCSchedule(string uccode) {
     return v;
 }
 /**
- * Method to make a set for all the students enrolled in a certain class identified by its classcode.
+ * Method to make a set for all the students enrolled in a certain class identified by its classcode. - complexity O(N³)
  * @param classcode for the specific class whose enrolled students we want to inquire about.
  * @return set of students enrolled in the class.
  */
@@ -242,9 +242,8 @@ set<Student> Menu::listStudentsbyClass(std::string classcode1) {
    return s;
 }
 /**
- * Method to print all the students enrolled in a certain Year identified by its number.
+ * Method to print all the students enrolled in a certain Year identified by its number. - complexity (N³)
  * @param number that represents the specific year whose enrolled students we want to inquire about.
- *
  */
 void Menu::listStudentsbyYear(char number){
     cout << '\n';
@@ -272,7 +271,7 @@ void Menu::listStudentsbyYear(char number){
     cout << "Ocupation of year " << number << " = " << s.size() << '\n';
 }
 /**
- * Method to print all the students enrolled in a certain UC identified by its uccode.
+ * Method to print all the students enrolled in a certain UC identified by its uccode. - complexity O(N³)
  * @param uccode of the given uc.
  */
 void Menu::listStudentsbyUC(string uc){
@@ -303,7 +302,7 @@ void Menu::listStudentsbyUC(string uc){
     else log.push("List Students by UC");
 }
 /**
- * Prints every UC available for the students.
+ * Prints every UC available for the students. - complexity O(N)
  */
 void Menu::listAllUCs() {
     log.push("List All UCs");
@@ -313,7 +312,7 @@ void Menu::listAllUCs() {
 }
 /**
  * Prints every student id and name.
- * Ends with the amount of existing unique students.
+ * Ends with the amount of existing unique students. - complexity O(N)
  */
 void Menu::listAllStudents() {
     log.push("List All Students");
@@ -326,7 +325,7 @@ void Menu::listAllStudents() {
 }
 /**
  * Prints the UC(s) with more occupation by making use of two stacks,
- * one with all the ucs, and another with only the max occupation number.
+ * one with all the ucs, and another with only the max occupation number. - complexity O(N²)
  */
 void Menu::maxUCs() {
     stack<UC> ucs;
@@ -335,7 +334,7 @@ void Menu::maxUCs() {
     for(UC uc : d.get_uc_vector()) {
         int count = 0;
         for(auto turma: uc.getClasses()){
-            for(auto stu: turma.getStudents()) count++;
+            count += turma.getStudents().size();
         }
         if(ucs.empty()){
             ucs.push(uc);
@@ -358,9 +357,9 @@ void Menu::maxUCs() {
     cout << "With " << temp << " students" << endl;
 }
 /**
- * Checks the possibility to add a student to another UC.
- * @param ID
- * @param uc
+ * Checks the possibility to add a student to another UC. - complexity O(N³)
+ * @param ID of the student
+ * @param uccode of the UC.
  * @return true if the student can be added to given UC, false otherwise.
  */
 bool Menu::addUC(int ID, string uc) {
@@ -440,8 +439,8 @@ bool Menu::addUC(int ID, string uc) {
     }
 }
 /**
- * Infers if a given student has reached its UC limit(7).
- * @param id
+ * Infers if a given student has reached its UC limit(7). - complexity O(N³)
+ * @param id of the student.
  * @return true if it has reached the limit, false otherwise.
  */
 bool Menu::checkMaxUC (int id) {
@@ -461,7 +460,7 @@ bool Menu::checkMaxUC (int id) {
 }
 /**
  * Compares two schedules to determine compatibility, ensuring that
- * no classes overlap except in the case of both being theoretical classes.
+ * no classes overlap except in the case of both being theoretical classes. - complexity O(N²)
  * @param current the schedule in which we want to insert more classes(another schedule).
  * @param novo the schedule we want to add to an already existing one.
  * @return true if both schedules are compatible, false otherwise.
@@ -482,9 +481,9 @@ bool Menu::compatibleSchedules(list<Schedule> current, vector<Schedule> novo) {
 }
 /**
  * Removes the given student from the provided UC.
- * Prints a confirmation message at the end.
- * @param ID
- * @param uc1
+ * Prints a confirmation message at the end. - complexity O(N³)
+ * @param ID of the student.
+ * @param uccode of the UC.
  * @return the classcode of the class which the student was removed from.
  */
 string Menu::removeUC(int ID, string uc1){
@@ -530,10 +529,10 @@ string Menu::removeUC(int ID, string uc1){
 /**
  * Verifies if a student can be added to a target UC,
  * taking into consideration that he will be removed
- * from the source UC. If possible the adding is done.
- * @param id
- * @param source_uc
- * @param target_uc
+ * from the source UC. If possible the adding is done. - complexity O(N³)
+ * @param id of the student.
+ * @param source_uc the UC we want to switch from.
+ * @param target_uc the UC we want to switch into.
  * @return true if the operation is possible, false otherwise.
  */
 bool Menu::canaddUC(int id, string source_uc, string target_uc) {
@@ -611,7 +610,7 @@ bool Menu::canaddUC(int id, string source_uc, string target_uc) {
 }
 /**
  *  Checks if a given student, identified by its id,
- *  is enrolled in a certain UC, identified by its uc_code.
+ *  is enrolled in a certain UC, identified by its uc_code. - complexity O(N³)
  * @param id of the student.
  * @param uc code of the given UC.
  * @return the classcode of the class the student is in, or an empty string if the student isn't enrolled in the UC.
@@ -635,10 +634,10 @@ string Menu::ConsultClassbyUC(int id, string uc){
  * Verifies if a student can be added to a target class,
  * of a given UC, taking into consideration that he will
  * be removed from the original class. If possible the
- * adding is done.
- * @param id
- * @param target_class
- * @param uc
+ * adding is done. - complexity O(N³)
+ * @param id of the student.
+ * @param target_class the class we want to add the student into.
+ * @param uccode of the given UC.
  * @return true if the operation is possible, false otherwise.
  */
 bool Menu::canaddClass(int id, std::string target_class, std::string uc) {
@@ -724,7 +723,7 @@ bool Menu::canaddClass(int id, std::string target_class, std::string uc) {
     return false;
 }
 /**
- * Removes the given student from the provided class, from the given UC.
+ * Removes the given student from the provided class, from the given UC. - complexity O(N³)
  * @param id of the student.
  * @param uc1 identifier of the UC.
  * @param classcode of the class.

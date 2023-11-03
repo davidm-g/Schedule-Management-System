@@ -1,0 +1,41 @@
+\doxysection{Data.\+h}
+\hypertarget{Data_8h_source}{}\label{Data_8h_source}\index{/home/davidmg/Documents/school/2ND\_YEAR/ProjectAED/AED\_project1/src/Data.h@{/home/davidmg/Documents/school/2ND\_YEAR/ProjectAED/AED\_project1/src/Data.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ afdom\ on\ 10/10/2023.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ PROJECT1\_CODE\_DATA\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ PROJECT1\_CODE\_DATA\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}UC.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}Student.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}Action.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classData}{Data}}\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ vector<UC>\ uc\_vector;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ set<Student>\ allstudents;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ stack<Action>\ record;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classData}{Data}}();}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ vector<UC>\ get\_uc\_vector();}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ stack<Action>\ get\_record();}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set\_record(stack<Action>\ record);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set\_uc\_vector(vector<UC>\ uc\_vector);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ set<Student>\ get\_all\_students();}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ parse\_file1();}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ parse\_file2();}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ parse\_file3();}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ addAction(\mbox{\hyperlink{classAction}{Action}}\ a);}
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PROJECT1\_CODE\_DATA\_H}}
+
+\end{DoxyCode}

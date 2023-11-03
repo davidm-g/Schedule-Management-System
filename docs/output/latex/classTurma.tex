@@ -1,0 +1,47 @@
+\doxysection{Turma Class Reference}
+\hypertarget{classTurma}{}\label{classTurma}\index{Turma@{Turma}}
+
+
+Categorizes a class using its unique identifier (class code) and provides details about its schedule as well as a set of enrolled students.  
+
+
+
+
+{\ttfamily \#include $<$Turma.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classTurma_a46b2886976fc54de4e4372a438132c0a}\label{classTurma_a46b2886976fc54de4e4372a438132c0a} 
+{\bfseries Turma} (std\+::string classcode)
+\item 
+\Hypertarget{classTurma_a11ea0d0cf3ab3b878b0dcdc9bccf2fca}\label{classTurma_a11ea0d0cf3ab3b878b0dcdc9bccf2fca} 
+std\+::string {\bfseries get\+Turma\+Code} ()
+\item 
+\Hypertarget{classTurma_aa0e09ab7032a54313d69b0c1eb745706}\label{classTurma_aa0e09ab7032a54313d69b0c1eb745706} 
+void {\bfseries add\+\_\+student} (\mbox{\hyperlink{classStudent}{Student}} \&s1)
+\item 
+\Hypertarget{classTurma_a55dd77db5e0268e0d970b8f5578803fa}\label{classTurma_a55dd77db5e0268e0d970b8f5578803fa} 
+std\+::set$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ {\bfseries get\+Students} ()
+\item 
+\Hypertarget{classTurma_aa80789333e53fc9ef9fc8f5acbb7fbf4}\label{classTurma_aa80789333e53fc9ef9fc8f5acbb7fbf4} 
+void {\bfseries set\+Students} (set$<$ \mbox{\hyperlink{classStudent}{Student}} $>$ students)
+\item 
+\Hypertarget{classTurma_a1d1bfe7ccc2f1bd39dd4c34baecd5e10}\label{classTurma_a1d1bfe7ccc2f1bd39dd4c34baecd5e10} 
+void {\bfseries add\+\_\+\+Schedule} (\mbox{\hyperlink{classSchedule}{Schedule}} sec)
+\item 
+\Hypertarget{classTurma_aa886e7966bb075e3e163ec8c0aafe24d}\label{classTurma_aa886e7966bb075e3e163ec8c0aafe24d} 
+std\+::vector$<$ \mbox{\hyperlink{classSchedule}{Schedule}} $>$ {\bfseries get\+Schedule} ()
+\item 
+\Hypertarget{classTurma_aa0c90e7c80a4d859681529f0e5556dcf}\label{classTurma_aa0c90e7c80a4d859681529f0e5556dcf} 
+bool {\bfseries operator$<$} (\mbox{\hyperlink{classTurma}{Turma}} t1) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Categorizes a class using its unique identifier (class code) and provides details about its schedule as well as a set of enrolled students. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/davidmg/\+Documents/school/2\+ND\+\_\+\+YEAR/\+Project\+AED/\+AED\+\_\+project1/src/Turma.\+h\item 
+/home/davidmg/\+Documents/school/2\+ND\+\_\+\+YEAR/\+Project\+AED/\+AED\+\_\+project1/src/Turma.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,34 @@
+\doxysection{Turma.\+h}
+\hypertarget{Turma_8h_source}{}\label{Turma_8h_source}\index{/home/davidmg/Documents/school/2ND\_YEAR/ProjectAED/AED\_project1/src/Turma.h@{/home/davidmg/Documents/school/2ND\_YEAR/ProjectAED/AED\_project1/src/Turma.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PROJECT1\_CODE\_TURMA\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PROJECT1\_CODE\_TURMA\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Student.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Schedule.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTurma}{Turma}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ \ \ \ \ std::set<Student>\ students;}
+\DoxyCodeLine{00021\ \ \ \ \ std::string\ classcode;}
+\DoxyCodeLine{00022\ \ \ \ \ std::vector<Schedule>\ class\_schedule;}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classTurma}{Turma}}(std::string\ classcode);}
+\DoxyCodeLine{00025\ \ \ \ \ std::string\ getTurmaCode();}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_student(\mbox{\hyperlink{classStudent}{Student}}\ \&s1);}
+\DoxyCodeLine{00027\ \ \ \ \ std::set<Student>\ getStudents();}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ setStudents(set<Student>\ students);}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_Schedule(\mbox{\hyperlink{classSchedule}{Schedule}}\ sec);}
+\DoxyCodeLine{00030\ \ \ \ \ std::vector<Schedule>\ getSchedule();}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator<\ (\mbox{\hyperlink{classTurma}{Turma}}\ t1)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

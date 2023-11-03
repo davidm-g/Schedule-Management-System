@@ -1,0 +1,50 @@
+\doxysection{Schedule Class Reference}
+\hypertarget{classSchedule}{}\label{classSchedule}\index{Schedule@{Schedule}}
+
+
+Describes the day, type, and duration of a specific lesson, as well as the corresponding Course Unit (\doxylink{classUC}{UC}) and class it is associated with.  
+
+
+
+
+{\ttfamily \#include $<$Schedule.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classSchedule_a2a95f5ab921069fd00359e5acffafbd8}\label{classSchedule_a2a95f5ab921069fd00359e5acffafbd8} 
+{\bfseries Schedule} (std\+::string weekday, float start\+\_\+hour, float duration, std\+::string type, string uc, string turmacode)
+\item 
+\Hypertarget{classSchedule_ade13b0113264372a52a4f197b0d5a2a1}\label{classSchedule_ade13b0113264372a52a4f197b0d5a2a1} 
+std\+::string {\bfseries get\+\_\+weekday} ()
+\item 
+\Hypertarget{classSchedule_a85803ab17aca3afdfe8ef4d9ff260b38}\label{classSchedule_a85803ab17aca3afdfe8ef4d9ff260b38} 
+float {\bfseries get\+\_\+starthour} ()
+\item 
+\Hypertarget{classSchedule_a61dbe004c796b31045271ba3a423efdd}\label{classSchedule_a61dbe004c796b31045271ba3a423efdd} 
+float {\bfseries get\+\_\+duration} ()
+\item 
+\Hypertarget{classSchedule_a1869c543bbad1aa8c9d26135a10f1622}\label{classSchedule_a1869c543bbad1aa8c9d26135a10f1622} 
+string {\bfseries get\+\_\+uccode} ()
+\item 
+\Hypertarget{classSchedule_a24454a4996b7c9bbef5c5c8f527a7098}\label{classSchedule_a24454a4996b7c9bbef5c5c8f527a7098} 
+string {\bfseries get\+\_\+classcode} ()
+\item 
+\Hypertarget{classSchedule_a175fbe09f21ec3351b5ae74acf33aa68}\label{classSchedule_a175fbe09f21ec3351b5ae74acf33aa68} 
+std\+::string {\bfseries get\+\_\+type} ()
+\item 
+\Hypertarget{classSchedule_ae147b1f6af50c95e8c2afb8428cf8ffe}\label{classSchedule_ae147b1f6af50c95e8c2afb8428cf8ffe} 
+float {\bfseries get\+\_\+endhour} ()
+\item 
+\Hypertarget{classSchedule_ae11c4f6cc1b5c6b08a82e937bc40e966}\label{classSchedule_ae11c4f6cc1b5c6b08a82e937bc40e966} 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{classSchedule}{Schedule}} sch) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Describes the day, type, and duration of a specific lesson, as well as the corresponding Course Unit (\doxylink{classUC}{UC}) and class it is associated with. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/davidmg/\+Documents/school/2\+ND\+\_\+\+YEAR/\+Project\+AED/\+AED\+\_\+project1/src/Schedule.\+h\item 
+/home/davidmg/\+Documents/school/2\+ND\+\_\+\+YEAR/\+Project\+AED/\+AED\+\_\+project1/src/Schedule.\+cpp\end{DoxyCompactItemize}

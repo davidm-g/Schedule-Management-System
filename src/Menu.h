@@ -26,7 +26,7 @@ using namespace std;
 class Menu {
     public:
         Menu();
-        void add_Action(Action a);
+        void add_Action(Action action);
         void undo();
         bool canBeAddedBack(int id, string uccode, string classcode);
         list<Schedule> consultStudentSchedule(int ID);

@@ -1,0 +1,36 @@
+\doxysection{Schedule.\+h}
+\hypertarget{Schedule_8h_source}{}\label{Schedule_8h_source}\index{/home/davidmg/Documents/school/2ND\_YEAR/ProjectAED/AED\_project1/src/Schedule.h@{/home/davidmg/Documents/school/2ND\_YEAR/ProjectAED/AED\_project1/src/Schedule.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PROJECT1\_CODE\_SCHEDULE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PROJECT1\_CODE\_SCHEDULE\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00011\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSchedule}{Schedule}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ std::string\ weekday;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{float}\ start\_hour;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{float}\ duration;}
+\DoxyCodeLine{00017\ \ \ \ \ std::string\ type;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{string}\ uc;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{string}\ turmacode;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classSchedule}{Schedule}}(std::string\ weekday,\ \textcolor{keywordtype}{float}\ start\_hour,\ \textcolor{keywordtype}{float}\ duration,\ std::string\ type,\textcolor{keywordtype}{string}\ uc,\textcolor{keywordtype}{string}\ turmacode);}
+\DoxyCodeLine{00024\ \ \ \ \ std::string\ get\_weekday();}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{float}\ get\_starthour();}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{float}\ get\_duration();}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{string}\ get\_uccode();}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{string}\ get\_classcode();}
+\DoxyCodeLine{00029\ \ \ \ \ std::string\ get\_type();}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{float}\ get\_endhour();}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator<\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{classSchedule}{Schedule}}\ sch)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
