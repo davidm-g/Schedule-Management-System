@@ -24,32 +24,32 @@ using namespace std;
  * interpretation.
  */
 class Menu {
-    public:
-        Menu();
-        void add_Action(Action action);
-        void undo();
-        bool canBeAddedBack(int id, string uccode, string classcode);
-        list<Schedule> consultStudentSchedule(int ID);
-        list<Schedule> consultClassSchedule(string classcode);
-        list<Schedule> consultUCSchedule(string uccode);
-        set<Student> listStudentsbyClass(string classcode1);
-        void listStudentsbyYear(char number);
-        void listAllUCs();
-        void listAllStudents();
-        void listStudentsbyUC(string uc);
-        void maxUCs();
-        bool addUC(int ID, string uc);
-        string removeUC(int ID, string uc1);
-        bool checkMaxUC (int id);
-        bool compatibleSchedules (list<Schedule> current, vector<Schedule> novo);
-        bool canaddUC (int id, string source_uc, string target_uc);
-        string ConsultClassbyUC(int id, string uc);
-        bool canaddClass(int id, string target_class, string uc);
-        void removeClass(int id, string uc, string classcode);
-        queue<string> getLog();
+public:
+    Menu();
+    void add_Action(Action action);
+    bool undo();
+    bool canBeAddedBack(int id, string uccode, string classcode);
+    list<Schedule> consultStudentSchedule(int ID);
+    list<Schedule> consultClassSchedule(string classcode);
+    list<Schedule> consultUCSchedule(string uccode);
+    set<Student> listStudentsbyClass(string classcode1);
+    bool listStudentsbyYear(char number);
+    void listAllUCs();
+    void listAllStudents();
+    bool listStudentsbyUC(string uc);
+    void maxUCs();
+    bool addUC(int ID, string uc);
+    string removeUC(int ID, string uc1);
+    bool checkMaxUC (int id);
+    bool compatibleSchedules (list<Schedule> current, vector<Schedule> novo);
+    bool canaddUC (int id, string source_uc, string target_uc);
+    string ConsultClassbyUC(int id, string uc);
+    bool canaddClass(int id, string target_class, string uc);
+    void removeClass(int id, string uc, string classcode);
+
 private:
-        Data d;
-        queue<string> log;
+    Data d;
+
 };
 
 

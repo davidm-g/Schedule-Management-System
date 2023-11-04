@@ -6,7 +6,6 @@
 
 
 Data::Data() {
-    this->uc_vector = vector<UC>();
     this->allstudents = set<Student>();
     this->record = stack<Action>();
 
@@ -22,14 +21,12 @@ void Data::set_record(stack<Action> record){
 stack<Action> Data::get_record() {
     return this->record;
 }
-vector<UC> Data::get_uc_vector() {
-    return this->uc_vector;
-}
+
 set<Student> Data::get_all_students(){
     return this->allstudents;
 }
-void Data::set_uc_vector(vector<UC> uc_vector) {
-    this->uc_vector = uc_vector;
+void Data::set_uc_map(map<string,UC> uc_map) {
+    this->uc_map = uc_map;
 }
 void Data::parse_file1() {
     ifstream ucfile("classes_per_uc.csv");
@@ -41,20 +38,16 @@ void Data::parse_file1() {
         istringstream iss(line); // manipular a linha
         getline(iss, uccode, ','); // extrair uccode e ignorar a vírgula
         getline(iss, classcode); // extrair classcode
-        bool existia = false;
-        for (UC &uc: this->uc_vector) {
-            if (uc.getcode() == uccode) {
-                existia = true;
-                Turma t = Turma(classcode);
-                uc.add_class(t); // adicionar a uma UC existente uma Turma
-                break;
-            }
-        }
-        if (!existia) {
+        auto it = uc_map.find(uccode);
+        if(it != uc_map.end()){
             Turma t = Turma(classcode);
-            this->uc_vector.push_back(UC(uccode, t)); // adicionar ao vetor de UCs uma UC nova
+            it->second.add_class(t);
         }
-
+        else{
+            Turma t = Turma(classcode);
+            UC uc = UC(uccode,t);
+            this->uc_map.insert(make_pair(uccode,uc));
+        }
     }
 }
 
@@ -63,38 +56,31 @@ void Data::parse_file2() {
     ifstream stufile("students_classes.csv");
     string line;
     getline(stufile, line); // ler e ignorar a primeira linha
-    while(getline(stufile,line)){
-        string scode,sname, uccode, classcode;
+    while (getline(stufile, line)) {
+        string scode, sname, uccode, classcode;
         istringstream iss(line);
         getline(iss, scode, ','); // extrair scode e ignorar a vírgula
         getline(iss, sname, ','); // extrair sname e ignorar a vírgula
         getline(iss, uccode, ','); // extrair uccode e ignorar a vírgula
         getline(iss, classcode); // extrair classcode e ignorar a vírgula
         int sid = stoi(scode);
-        for(UC &uc : this->uc_vector) {
-            if(uc.getcode() == uccode) {
-                std::vector<Turma> cl = uc.getClasses();
-                for (Turma &classe : cl) {
-                    if (classe.getTurmaCode() == classcode) {
-                        if(temp_scode.find(sid) == temp_scode.end()){
-                            Student stu = Student(sid,sname);
-                            this->allstudents.insert(stu);
-                            classe.add_student(stu);
-                            break;
-                        }
-                        else{
-                            for(auto s: this->allstudents){
-                                if(s.getID() == sid) classe.add_student(s);
-                            }
-                        }
-                        break;
-
+        auto it = uc_map.find(uccode);
+        std::vector<Turma> cl1 = it->second.getClasses();
+        for (auto &turma: cl1) {
+            if (turma.getTurmaCode() == classcode) {
+                if (temp_scode.find(sid) == temp_scode.end()) {
+                    Student stu = Student(sid, sname);
+                    this->allstudents.insert(stu);
+                    turma.add_student(stu);
+                }
+                else {
+                    for (auto s: this->allstudents) {
+                        if (s.getID() == sid) turma.add_student(s);
                     }
                 }
-                uc.setClasses(cl);
-                break;
             }
         }
+        it->second.setClasses(cl1);
     }
 }
 
@@ -113,19 +99,18 @@ void Data::parse_file3() {
         getline(iss, type); // extrair type
         float du = stof(duration);
         float sth = stof(starthour);
-
-        for(UC &uc : this->uc_vector) {
-            if(uc.getcode() == uccode) {
-                std::vector<Turma> cl = uc.getClasses();
-                for (Turma &classe : cl) {
-                    if (classe.getTurmaCode() == classcode) {
-                        Schedule sch = Schedule(weekday,sth,du,type,uccode,classcode);
-                        classe.add_Schedule(sch);
-                    }
-                }
-                uc.setClasses(cl);
-                break;
+        auto it = this->uc_map.find(uccode);
+        std::vector<Turma> cl1 = it->second.getClasses();
+        for(auto &turma : cl1){
+            if (turma.getTurmaCode() == classcode) {
+                Schedule sch = Schedule(weekday,sth,du,type,uccode,classcode);
+                turma.add_Schedule(sch);
             }
         }
+        it->second.setClasses(cl1);
     }
+}
+
+map<string,UC> Data::get_uc_map(){
+    return this->uc_map;
 }

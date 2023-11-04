@@ -8,139 +8,139 @@
 		<Option virtualFolders="CMake Files\;CMake Files\docs\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug"/>
+				<Option working_dir="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Project1_code">
-				<Option output="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Project1_code" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug"/>
+				<Option output="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Project1_code.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/include/c++/11"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
-					<Add directory="/usr/include/c++/11/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Project1_code"/>
-					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Project1_code"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Project1_code/fast">
-				<Option output="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Project1_code" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug"/>
+				<Option output="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Project1_code.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/include/c++/11"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
-					<Add directory="/usr/include/c++/11/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Project1_code/fast"/>
-					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Project1_code/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Doxygen">
-				<Option working_dir="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug"/>
+				<Option working_dir="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Doxygen"/>
-					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Doxygen"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug"/>
+				<Option working_dir="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug"/>
+				<Option working_dir="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Action.cpp">
+		<Unit filename="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/src/Action.cpp">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Action.h">
+		<Unit filename="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/src/Action.h">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Data.cpp">
+		<Unit filename="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/src/Data.cpp">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Data.h">
+		<Unit filename="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/src/Data.h">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Menu.cpp">
+		<Unit filename="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/src/Menu.cpp">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Menu.h">
+		<Unit filename="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/src/Menu.h">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Schedule.cpp">
+		<Unit filename="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/src/Schedule.cpp">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Schedule.h">
+		<Unit filename="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/src/Schedule.h">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Student.cpp">
+		<Unit filename="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/src/Student.cpp">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Student.h">
+		<Unit filename="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/src/Student.h">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Turma.cpp">
+		<Unit filename="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/src/Turma.cpp">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/Turma.h">
+		<Unit filename="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/src/Turma.h">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/UC.cpp">
+		<Unit filename="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/src/UC.cpp">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/UC.h">
+		<Unit filename="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/src/UC.h">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/main.cpp">
+		<Unit filename="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/src/main.cpp">
 			<Option target="Project1_code"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/CMakeLists.txt">
+		<Unit filename="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/docs/Doxyfile">
+		<Unit filename="C:/Users/afdom/OneDrive/Ambiente de Trabalho/Ativa/AED_project1/docs/Doxyfile">
 			<Option virtualFolder="CMake Files\docs\"/>
 		</Unit>
 	</Project>

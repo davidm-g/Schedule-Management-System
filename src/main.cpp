@@ -16,6 +16,7 @@
 using namespace std;
 
 int main(){
+    queue<string> log;
     Menu m = Menu();
     int choice;
     stack<string> lastchange;
@@ -40,31 +41,34 @@ int main(){
         cin >> choice;
         if(!cin) {
             std::cout << "Invalid option." << '\n'
-            << "The program will stop.";
+                      << "The program will stop.";
             break;
         }
 
         std::cout << "-------------------------------------" << '\n';
 
         switch (choice) {
-            case 1:
-            {
+            case 1: {
                 std::string clascode;
                 cout << "Please enter the class code: ";
                 cin >> clascode;
                 list<Schedule> v = m.consultClassSchedule(clascode);
-                for (Schedule s : v) {
-                    string sh, eh;
-                    float endhour = s.get_starthour() + s.get_duration();
-                    if(s.get_starthour() < 10) sh = '0';
-                    if(endhour < 10) eh = '0';
-                    if (remainder(s.get_starthour(), 1) != 0) sh += to_string((int)s.get_starthour()) + ':' + "30";
-                    else sh += to_string((int)s.get_starthour()) + ':' + "00";
-                    if (remainder(endhour, 1) != 0) eh += to_string((int)endhour) + ':' + "30";
-                    else eh += to_string((int)endhour) + ':' + "00";
-                    cout << left << setw(9) << s.get_weekday() << " | " << setw(5) << sh <<
-                         "->" << setw(5) << eh << " | " << setw(2) << s.get_type() << " | "
-                         << s.get_uccode() << '\n';
+                if (v.empty()) log.push("View Class Schedule - FAILED!");
+                else {
+                    log.push("View Class Schedule");
+                    for (Schedule s: v) {
+                        string sh, eh;
+                        float endhour = s.get_starthour() + s.get_duration();
+                        if (s.get_starthour() < 10) sh = '0';
+                        if (endhour < 10) eh = '0';
+                        if (remainder(s.get_starthour(), 1) != 0) sh += to_string((int) s.get_starthour()) + ':' + "30";
+                        else sh += to_string((int) s.get_starthour()) + ':' + "00";
+                        if (remainder(endhour, 1) != 0) eh += to_string((int) endhour) + ':' + "30";
+                        else eh += to_string((int) endhour) + ':' + "00";
+                        cout << left << setw(9) << s.get_weekday() << " | " << setw(5) << sh <<
+                             "->" << setw(5) << eh << " | " << setw(2) << s.get_type() << " | "
+                             << s.get_uccode() << '\n';
+                    }
                 }
 
                 break;
@@ -75,18 +79,22 @@ int main(){
                 cout << "Please enter the student ID: ";
                 cin >> ID;
                 list<Schedule> v = m.consultStudentSchedule(ID);
-                for (Schedule s : v) {
-                    string sh, eh;
-                    float endhour = s.get_starthour() + s.get_duration();
-                    if(s.get_starthour() < 10) sh = '0';
-                    if(endhour < 10) eh = '0';
-                    if (remainder(s.get_starthour(), 1) != 0) sh += to_string((int)s.get_starthour()) + ':' + "30";
-                    else sh += to_string((int)s.get_starthour()) + ':' + "00";
-                    if (remainder(endhour, 1) != 0) eh += to_string((int)endhour) + ':' + "30";
-                    else eh += to_string((int)endhour) + ':' + "00";
-                    cout << left << setw(9) << s.get_weekday() << " | " << setw(5) << sh <<
-                         "->" << setw(5) << eh << " | " << setw(2) << s.get_type() << " | "
-                         << setw(8) << s.get_uccode() << " | " << s.get_classcode() << '\n';
+                if(v.empty()) log.push("View Student Schedule - FAILED!");
+                else {
+                    log.push("View Student Schedule");
+                    for (Schedule s: v) {
+                        string sh, eh;
+                        float endhour = s.get_starthour() + s.get_duration();
+                        if (s.get_starthour() < 10) sh = '0';
+                        if (endhour < 10) eh = '0';
+                        if (remainder(s.get_starthour(), 1) != 0) sh += to_string((int) s.get_starthour()) + ':' + "30";
+                        else sh += to_string((int) s.get_starthour()) + ':' + "00";
+                        if (remainder(endhour, 1) != 0) eh += to_string((int) endhour) + ':' + "30";
+                        else eh += to_string((int) endhour) + ':' + "00";
+                        cout << left << setw(9) << s.get_weekday() << " | " << setw(5) << sh <<
+                             "->" << setw(5) << eh << " | " << setw(2) << s.get_type() << " | "
+                             << setw(8) << s.get_uccode() << " | " << s.get_classcode() << '\n';
+                    }
                 }
 
                 break;
@@ -96,26 +104,30 @@ int main(){
                 cout << "Please enter the UC code: ";
                 cin >> uccode;
                 list<Schedule> v = m.consultUCSchedule(uccode);
-                for (Schedule s : v) {
-                    string sh, eh;
-                    float endhour = s.get_starthour() + s.get_duration();
-                    if(s.get_starthour() < 10) sh = '0';
-                    if(endhour < 10) eh = '0';
-                    if (remainder(s.get_starthour(), 1) != 0) sh += to_string((int)s.get_starthour()) + ':' + "30";
-                    else sh += to_string((int)s.get_starthour()) + ':' + "00";
-                    if (remainder(endhour, 1) != 0) eh += to_string((int)endhour) + ':' + "30";
-                    else eh += to_string((int)endhour) + ':' + "00";
-                    cout << left << setw(9) << s.get_weekday() << " | " << setw(5) << sh <<
-                         "->" << setw(5) << eh << " | " << setw(2) << s.get_type() << " | "
-                         << s.get_classcode() << '\n';
+                if(v.empty()) log.push("View UC Schedule - FAILED!");
+                else {
+                    log.push("View UC Schedule");
+                    for (Schedule s: v) {
+                        string sh, eh;
+                        float endhour = s.get_starthour() + s.get_duration();
+                        if (s.get_starthour() < 10) sh = '0';
+                        if (endhour < 10) eh = '0';
+                        if (remainder(s.get_starthour(), 1) != 0) sh += to_string((int) s.get_starthour()) + ':' + "30";
+                        else sh += to_string((int) s.get_starthour()) + ':' + "00";
+                        if (remainder(endhour, 1) != 0) eh += to_string((int) endhour) + ':' + "30";
+                        else eh += to_string((int) endhour) + ':' + "00";
+                        cout << left << setw(9) << s.get_weekday() << " | " << setw(5) << sh <<
+                             "->" << setw(5) << eh << " | " << setw(2) << s.get_type() << " | "
+                             << s.get_classcode() << '\n';
+                    }
                 }
                 break;
             }
             case 4:
             {
                 cout << "Select the desired option: " << '\n'
-                    << "1. Add UC\n" << "2. Switch UCs\n"
-                    << "3. Remove UC\n";
+                     << "1. Add UC\n" << "2. Switch UCs\n"
+                     << "3. Remove UC\n";
                 int n;
                 cin >> n;
                 switch (n){
@@ -130,8 +142,10 @@ int main(){
                             Action a = Action("addUC", id, uc);
                             m.add_Action(a);
                             lastchange.push("addUC");
-                            break;
+                            log.push("addUC");
                         }
+                        else log.push("addUC - FAILED!");
+                        break;
                     }
                     case 2: {
                         int id;
@@ -147,8 +161,10 @@ int main(){
                             Action a = Action("switchUC", id, uc1, classcode, uc2);
                             m.add_Action(a);
                             lastchange.push("switchUC");
+                            log.push("SwitchUC");
                         }
                         else{
+                            log.push("SwitchUC - FAILED!");
                             cout << "The student can not change UCs\n";
                         }
                         break;
@@ -164,6 +180,7 @@ int main(){
                         Action a = Action("removeUC", id, uc, classcode);
                         m.add_Action(a);
                         lastchange.push("removeUC");
+                        log.push("removeUC");
                         break;
                     }
                 }
@@ -185,7 +202,9 @@ int main(){
                     Action a = Action("switchClass", id, uc, og_classcode, target_class);
                     m.add_Action(a);
                     lastchange.push("switchClass");
+                    log.push("SwitchClass");
                 }
+                else log.push("SwitchClass - FAILED!");
                 break;
             }
             case 6: {
@@ -194,10 +213,12 @@ int main(){
                 cout << "Please enter the class code: ";
                 cin >> clascode;
                 set<Student> s = m.listStudentsbyClass(clascode);
-                if (s.empty())
+                if (s.empty()) {
+                    log.push("List all Students by Class - FAILED!");
                     cout << "Please enter a valid class code in the format (XLEICXX)" << '\n';
-
+                }
                 else {
+                    log.push("List all Students by Class");
                     for (auto stu: s)
                         cout << stu.getID() << ' ' << stu.getName() << '\n';
                     cout << "Number of students on class " << clascode << " = " << s.size() << '\n';
@@ -209,11 +230,13 @@ int main(){
                 char year;
                 cout << "Please enter the year to search for: ";
                 cin >> year;
-                m.listStudentsbyYear(year);
+                if(m.listStudentsbyYear(year)) log.push("List Students by Year");
+                else log.push("List Students by Year - FAILED!");
                 break;
             }
             case 8:
             {
+                log.push("Check maxUCs");
                 m.maxUCs();
                 break;
             }
@@ -221,22 +244,24 @@ int main(){
                 string uce;
                 cout << "Please enter the UC to search for: ";
                 cin >> uce;
-                m.listStudentsbyUC(uce);
+                if(m.listStudentsbyUC(uce)) log.push("List Students by UC");
+                else log.push("List Students by UC - FAILED!");
                 break;
             }
             case 10: {
                 m.listAllUCs();
+                log.push("List all UCs");
                 break;
             }
             case 11: {
                 m.listAllStudents();
+                log.push("List all Students");
                 break;
             }
             case 12: {
-                queue<string> log_cpy = m.getLog();
-                while(!log_cpy.empty()) {
-                    cout << log_cpy.front() << '\n';
-                    log_cpy.pop();
+                while(!log.empty()) {
+                    cout << log.front() << '\n';
+                    log.pop();
                 }
                 break;
             }
@@ -245,7 +270,9 @@ int main(){
                 return 0;
             }
             case 14: {
-                m.undo();
+                string s = lastchange.top();
+                if (m.undo()) log.push(("Undo " + s) );
+                else log.push("Undo " + s + " - FAILED!");
                 lastchange.pop();
                 break;
             }
