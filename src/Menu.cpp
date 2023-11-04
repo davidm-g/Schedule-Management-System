@@ -16,7 +16,7 @@ void Menu::add_Action(Action action) {
 /**
  * Checks if a student with given id can be added back
  * to a class with given classcode from a specific
- * curricular unit with given uccode. - complexity O(202027527)
+ * curricular unit with given uccode. - complexity O(N²)
  * @param id of the given student.
  * @param uccode of the given UC.
  * @param classcode of the class
@@ -75,7 +75,8 @@ bool Menu::canBeAddedBack(int id, string uccode,string classcode){
 }
 /**
  * This function gets the last function executed from stack record,
- * tries to execute its inverse and removes it from the stack.
+ * tries to execute its inverse and removes it from the stack. - complexity O(N²)
+ * @return true if its possible to undo a certain action, false otherwise.
  */
 bool Menu::undo() {
     stack<Action> temp = d.get_record();
@@ -125,6 +126,7 @@ bool Menu::undo() {
     }
     temp.pop();
     d.set_record(temp);
+    return false;
 }
 /**
  * Retrieves the schedule of a given student.
@@ -198,15 +200,12 @@ list<Schedule> Menu::consultUCSchedule(string uccode) {
     map<string,UC> temp = d.get_uc_map();
     list<Schedule> v;
     auto it = temp.find(uccode);
-    for (Turma turma : it->second.getClasses()) {
-        for (Schedule sche : turma.getSchedule()) v.push_back(sche);
-    }
-
-
-
-    if(v.empty()){
+    if(it == temp.end()){
         cout << "Please enter a valid UC code in the format (L.EICXXX)" << '\n';
         return v;
+    }
+    for (Turma turma : it->second.getClasses()) {
+        for (Schedule sche : turma.getSchedule()) v.push_back(sche);
     }
     v.sort();
     return v;
@@ -219,7 +218,6 @@ list<Schedule> Menu::consultUCSchedule(string uccode) {
 set<Student> Menu::listStudentsbyClass(std::string classcode1) {
     cout << '\n';
     map<string,UC> temp = d.get_uc_map();
-
     set<Student> s;
     for(auto uc : temp){
         for(Turma turma: uc.second.getClasses()){
@@ -250,8 +248,8 @@ bool Menu::listStudentsbyYear(char number){
         }
     }
     if(s.empty()) {
-
         cout << "Please enter a valid student year in the interval [1, 3]" << '\n';
+        return false;
     }
     else {
         cout << "Students enrolled in the year " << number << " :\n";
@@ -259,6 +257,7 @@ bool Menu::listStudentsbyYear(char number){
             cout << stu.getID() << ' ' << stu.getName() << '\n';
         }
         cout << "Ocupation of year " << number << " = " << s.size() << '\n';
+        return true;
     }
 
 }
@@ -294,22 +293,35 @@ bool Menu::listStudentsbyUC(string uc) {
 /**
  * Prints every UC available for the students. - complexity O(N)
  */
-void Menu::listAllUCs() {
-    for(auto uc: d.get_uc_map()){
-        cout << uc.second.getcode() << '\n';
+void Menu::listAllUCs(int order) {
+    vector<string> temp;
+    for(auto uc : d.get_uc_map()) temp.push_back(uc.first);
+    if(order == 1) sort(temp.begin(),temp.end(),[](string uc1,string uc2){return uc1 < uc2;});
+    if(order == 2) sort(temp.begin(), temp.end(), [](string uc1, string uc2){return uc1 > uc2;});
+    for(auto uccode: temp){
+        cout << uccode << '\n';
     }
+    cout << "Total number of UCs = " << d.get_uc_map().size() << '\n';
 }
 /**
  * Prints every student id and name.
  * Ends with the amount of existing unique students. - complexity O(N)
  */
-void Menu::listAllStudents() {
-    int count = 0;
-    for (Student stu : d.get_all_students()) {
+void Menu::listAllStudents(int attri, int order) {
+    vector<Student> temp;
+    for(Student stu : d.get_all_students()) temp.push_back(stu);
+    if(attri ==1 && order == 1) //sorting by id ascending
+        sort(temp.begin(),temp.end(),[](Student s1, Student s2){ return s1.getID() < s2.getID();});
+    if(attri == 1 && order == 2) //sorting by id descending
+        sort(temp.begin(),temp.end(),[](Student s1, Student s2){ return s1.getID() > s2.getID();});
+    if(attri == 2 && order == 1) //sorting by name ascending
+        sort(temp.begin(),temp.end(),[](Student s1, Student s2){ return s1.getName() < s2.getName();});
+    if(attri == 2 && order == 2) //sorting bby name descdenig
+        sort(temp.begin(),temp.end(),[](Student s1, Student s2){ return s1.getName() > s2.getName();});
+    for (Student stu : temp) {
         cout << stu.getID() << ' ' << stu.getName() << '\n';
-        count++;
     }
-    cout << "Number of Students = " << count << '\n';
+    cout << "Number of Students = " << d.get_all_students().size() << '\n';
 }
 /**
  * Prints the UC(s) with more occupation by making use of two stacks,
@@ -414,7 +426,7 @@ bool Menu::addUC(int ID, string uc) {
         }
     }
     else {
-        cout << "Please enter a valid student id with 9 digits." << '\n';
+        
         return false;
     }
 }
@@ -589,6 +601,10 @@ bool Menu::canaddUC(int id, string source_uc, string target_uc) {
 string Menu::ConsultClassbyUC(int id, string uc){
     map<string, UC> temp = d.get_uc_map();
     auto it = temp.find(uc);
+    if(it == temp.end()){
+        cout << "Please enter a valid UC code in the format (L.EICXXX)" << '\n';
+        return "";
+    }
     for(auto turma: it->second.getClasses()){
         for(auto stu: turma.getStudents()){
             if(stu.getID() == id){
@@ -611,11 +627,17 @@ string Menu::ConsultClassbyUC(int id, string uc){
 bool Menu::canaddClass(int id, std::string target_class, std::string uc) {
     map<string, UC> temp = d.get_uc_map();
     list<Schedule> current = consultStudentSchedule(id);
+    if(current.empty()) return false;
+    bool exist_uc = false;
     for (auto it = current.begin(); it != current.end();it++) {
-        if (it->get_uccode() == uc)
+        if (it->get_uccode() == uc) {
             auto it1 = current.erase(it);
-        break;
+            exist_uc = true;
+            break;
+        }
     }
+    if(!exist_uc) return false;
+
     string name;
     string source_classcode = ConsultClassbyUC(id, uc);
     if (source_classcode == "") {
@@ -660,14 +682,17 @@ bool Menu::canaddClass(int id, std::string target_class, std::string uc) {
         }
         std::sort(compatible_classes.begin(), compatible_classes.end());
         bool caninsert = false;
+
         for (auto turma: compatible_classes) {
             if(turma.getTurmaCode() == target_class){
+
                 if (compatibleSchedules(current, turma.getSchedule()) ) {
                     caninsert = true;
                     break;
                 }
             }
         }
+
         if (!caninsert) {
 
             cout << "It's not possible to switch the student to the given class." << endl;

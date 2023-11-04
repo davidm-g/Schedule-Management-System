@@ -34,8 +34,8 @@ public:
     list<Schedule> consultUCSchedule(string uccode);
     set<Student> listStudentsbyClass(string classcode1);
     bool listStudentsbyYear(char number);
-    void listAllUCs();
-    void listAllStudents();
+    void listAllUCs(int order);
+    void listAllStudents(int attri, int order);
     bool listStudentsbyUC(string uc);
     void maxUCs();
     bool addUC(int ID, string uc);

@@ -96,7 +96,6 @@ int main(){
                              << setw(8) << s.get_uccode() << " | " << s.get_classcode() << '\n';
                     }
                 }
-
                 break;
             }
             case 3: {
@@ -127,16 +126,16 @@ int main(){
             {
                 cout << "Select the desired option: " << '\n'
                      << "1. Add UC\n" << "2. Switch UCs\n"
-                     << "3. Remove UC\n";
+                     << "3. Remove UC\nPlease enter your number choice:";
                 int n;
                 cin >> n;
                 switch (n){
                     case 1: {
                         int id;
                         string uc;
-                        cout << "Please enter the id of the student: ";
+                        cout << "Please enter the id of the student:";
                         cin >> id;
-                        cout << "Please enter the uccode: ";
+                        cout << "Please enter the uccode:";
                         cin >> uc;
                         if(m.addUC(id, uc)){
                             Action a = Action("addUC", id, uc);
@@ -150,11 +149,11 @@ int main(){
                     case 2: {
                         int id;
                         string uc1, uc2, classcode;
-                        cout << "Please enter the id of the student: ";
+                        cout << "Please enter the id of the student:";
                         cin >> id;
-                        cout << "Please enter the uccode of the UC you want to remove: ";
+                        cout << "Please enter the uccode of the UC you want to remove:";
                         cin >> uc1;
-                        cout << "Please enter the uccode of the UC you want to add: ";
+                        cout << "Please enter the uccode of the UC you want to add:";
                         cin >> uc2;
                         if(m.canaddUC(id,uc1,uc2)){
                             classcode = m.removeUC(id,uc1);
@@ -172,9 +171,9 @@ int main(){
                     case 3: {
                         int id;
                         string uc, classcode;
-                        cout << "Please enter the id of the student: ";
+                        cout << "Please enter the id of the student:";
                         cin >> id;
-                        cout << "Please enter the uccode: ";
+                        cout << "Please enter the uccode:";
                         cin >> uc;
                         classcode = m.removeUC(id, uc);
                         Action a = Action("removeUC", id, uc, classcode);
@@ -190,14 +189,14 @@ int main(){
             {
                 int id;
                 string uc, target_class, og_classcode;
-                cout << "Please enter the id of the student: ";
+                cout << "Please enter the id of the student:";
                 cin >> id;
-                cout << "Please enter the uc to manipulate: ";
+                cout << "Please enter the uc to manipulate:";
                 cin >> uc;
-                cout << "Please enter the desired class: ";
+                cout << "Please enter the desired class:";
                 cin >> target_class;
                 og_classcode = m.ConsultClassbyUC(id, uc);
-                if(m.canaddClass(id,target_class,uc)){
+                if (m.canaddClass(id, target_class, uc)) {
                     m.removeClass(id, uc, og_classcode);
                     Action a = Action("switchClass", id, uc, og_classcode, target_class);
                     m.add_Action(a);
@@ -236,7 +235,7 @@ int main(){
             }
             case 8:
             {
-                log.push("Check maxUCs");
+                log.push("Biggest UC");
                 m.maxUCs();
                 break;
             }
@@ -249,12 +248,20 @@ int main(){
                 break;
             }
             case 10: {
-                m.listAllUCs();
+                int order;
+                cout << "1. Ascending Order\n2. Descending Order\nPlease enter your choice:";
+                cin >> order;
+                m.listAllUCs(order);
                 log.push("List all UCs");
                 break;
             }
             case 11: {
-                m.listAllStudents();
+                int atrib, order;
+                cout << "1. Order by ID\n2. Order by Name\nPlease enter your choice:";
+                cin >> atrib;
+                cout << "1. Ascending Order\n2. Descending Order\nPlease enter your choice:";
+                cin >> order;
+                m.listAllStudents(atrib,order);
                 log.push("List all Students");
                 break;
             }
