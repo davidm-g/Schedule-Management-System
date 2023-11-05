@@ -50,7 +50,7 @@ int main(){
         switch (choice) {
             case 1: {
                 std::string clascode;
-                cout << "Please enter the class code: ";
+                cout << "Please enter the class code:";
                 cin >> clascode;
                 list<Schedule> v = m.consultClassSchedule(clascode);
                 if (v.empty()) log.push("View Class Schedule - FAILED!");
@@ -164,7 +164,6 @@ int main(){
                         }
                         else{
                             log.push("SwitchUC - FAILED!");
-                            cout << "The student can not change UCs\n";
                         }
                         break;
                     }
@@ -176,14 +175,26 @@ int main(){
                         cout << "Please enter the uccode:";
                         cin >> uc;
                         classcode = m.removeUC(id, uc);
-                        Action a = Action("removeUC", id, uc, classcode);
-                        m.add_Action(a);
-                        lastchange.push("removeUC");
-                        log.push("removeUC");
+                        if(classcode != "") {
+                            cout << "The student was removed from the given UC." << '\n';
+                            Action a = Action("removeUC", id, uc, classcode);
+                            m.add_Action(a);
+                            lastchange.push("removeUC");
+                            log.push("removeUC");
+                        }
+                        else{
+                            log.push("removeUC - FAILED!");
+                        }
                         break;
                     }
+                    default:{
+                        cout << "Not a valid option!\n";
+                        break;
+                    }
+
                 }
                 break;
+
             }
             case 5:
             {
@@ -251,18 +262,36 @@ int main(){
                 int order;
                 cout << "1. Ascending Order\n2. Descending Order\nPlease enter your choice:";
                 cin >> order;
-                m.listAllUCs(order);
-                log.push("List all UCs");
+                if(order != 1 && order != 2) {
+                    cout << "Not a valid option!\n";
+                    log.push("List all UCs - FAILED!");
+                }
+                else {
+                    m.listAllUCs(order);
+                    log.push("List all UCs");
+                }
                 break;
             }
             case 11: {
                 int atrib, order;
                 cout << "1. Order by ID\n2. Order by Name\nPlease enter your choice:";
                 cin >> atrib;
-                cout << "1. Ascending Order\n2. Descending Order\nPlease enter your choice:";
-                cin >> order;
-                m.listAllStudents(atrib,order);
-                log.push("List all Students");
+                if(atrib != 1 && atrib != 2) {
+                    cout << "Not a valid option!\n";
+                    log.push("List all Students - FAILED!");
+                }
+                else {
+                    cout << "1. Ascending Order\n2. Descending Order\nPlease enter your choice:";
+                    cin >> order;
+                    if(order != 1 && order != 2) {
+                        cout << "Not a valid option!\n";
+                        log.push("List all Students - FAILED!");
+                    }
+                    else {
+                        m.listAllStudents(atrib, order);
+                        log.push("List all Students");
+                    }
+                }
                 break;
             }
             case 12: {
