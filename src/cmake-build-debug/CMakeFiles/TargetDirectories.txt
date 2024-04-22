@@ -1,3 +1,0 @@
-/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/CMakeFiles/Project1_code.dir
-/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/davidmg/Documents/school/2ND_YEAR/ProjectAED/AED_project1/src/cmake-build-debug/CMakeFiles/rebuild_cache.dir
