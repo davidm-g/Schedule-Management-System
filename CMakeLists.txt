@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.26)
-project(Project1_code)
+cmake_minimum_required(VERSION 3.10)
+project(manager)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -7,7 +7,7 @@ file(COPY src/classes_per_uc.csv DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 file(COPY src/classes.csv DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 file(COPY src/students_classes.csv DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
-add_executable(Project1_code
+add_executable(manager
         src/main.cpp
         src/Turma.cpp
         src/UC.cpp
